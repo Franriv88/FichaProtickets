@@ -140,25 +140,49 @@
                 <td><input type="text" name="dato1[]" /></td>
                 <td><input type="text" name="dato2[]" /></td>
                 <td><input type="text" name="dato3[]" /></td>
+                <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
                 <td>
-                  <button
-                    class="toggle-btn no"
-                    type="button"
-                    onclick="ciclarOpcionMesa(this)"
-                  >
-                    No
-                  </button>
-                </td>
-                <td>
-                  <button class="delete-btn" onclick="eliminarFila(this)">
-                    Eliminar
-                  </button>
+                  <button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button>
                 </td>
                 <button onclick="agregarFila()">Agregar Fila</button>
               </tr>
             </tbody>
           </table>
         </fieldset>
+        <fieldset>
+          <legend>SECTORIZACIÓN</legend>
+          <table id="losPrecios" class="table-wrapper">
+            <thead>
+              <tr>
+                <th>Nombre de la Tarifa</th>
+                <th>Tickets por compra</th>
+                <th>Valor de Tarifa</th>
+                <th>% SC</th>
+                <th>$ SC Web</th>
+                <th>% SC</th>
+                <th>$ SC Boletería</th>
+                <th>Tickets por fase</th>
+              </tr>
+            </thead>
+            <tbody id="miTablaBody">
+              <tr>
+                <td><input type="text" name="dato1[]" /></td>
+                <td><input type="text" name="dato2[]" /></td>
+                <td><input type="text" name="dato3[]" /></td>
+                <td><input type="text" name="dato4[]" /></td>
+                <td><input type="text" name="dato5[]" /></td>
+                <td><input type="text" name="dato6[]" /></td>
+                <td><input type="text" name="dato7[]" /></td>
+                <td><input type="text" name="dato8[]" /></td>
+                <td><button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button></td>
+                <button onclick="agregarFila2()">Agregar Fila</button>
+              </tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+
+
       </form>
     </div>
 
