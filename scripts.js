@@ -60,3 +60,66 @@ sectorInput.addEventListener('click', reopenDatalist); // ✨ AQUÍ LA MAGIA
 
 venueInput.addEventListener('focus', selectTextOnFocus);
 sectorInput.addEventListener('focus', selectTextOnFocus);
+
+
+
+
+
+/**
+ * ESTA ES LA NUEVA FUNCIÓN para el botón de 3 estados.
+ * Rota el estado y el estilo del botón que se le pase como argumento.
+ */
+function ciclarOpcionMesa(boton) {
+    const estadoActual = boton.textContent;
+    
+    // Limpiamos las clases de estilo anteriores
+    boton.classList.remove('no', 'compartida', 'individual');
+
+    // Determinamos el siguiente estado
+    if (estadoActual === 'No') {
+        boton.textContent = 'Compartida';
+        boton.classList.add('compartida');
+    } else if (estadoActual === 'Compartida') {
+        boton.textContent = 'Individual';
+        boton.classList.add('individual');
+    } else { // Si es 'Individual'
+        boton.textContent = 'No';
+        boton.classList.add('no');
+    }
+}
+
+/**
+ * TU FUNCIÓN `agregarFila`.
+ * Ahora crea un botón que llama a la nueva función `ciclarOpcionMesa`.
+ */
+function agregarFila() {
+    var tbody = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+    var nuevaFila = tbody.insertRow();
+
+    var celda1 = nuevaFila.insertCell();
+    var celda2 = nuevaFila.insertCell();
+    var celda3 = nuevaFila.insertCell();
+    var celda4 = nuevaFila.insertCell(); // Celda con el botón de 3 estados
+    var celda5 = nuevaFila.insertCell(); // Celda con el botón de eliminar
+
+    celda1.innerHTML = '<input type="text" name="dato1[]">';
+    celda2.innerHTML = '<input type="text" name="dato2[]">';
+    celda3.innerHTML = '<input type="text" name="dato3[]">';
+    
+    // AQUÍ ESTÁ EL CAMBIO PRINCIPAL:
+    // El botón empieza en "No" y llama a la nueva función.
+    // Le añadimos la clase inicial 'no' para que tenga el estilo correcto.
+    celda4.innerHTML = '<button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button>';
+    
+    celda5.innerHTML = '<button class="delete-btn" type="button" onclick="eliminarFila(this)">Eliminar</button>';
+}
+
+/**
+ * Tu función `eliminarFila`.
+ */
+function eliminarFila(boton) {
+    var fila = boton.parentNode.parentNode;
+    fila.parentNode.removeChild(fila);
+}
+
+

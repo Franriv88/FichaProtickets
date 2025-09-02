@@ -1,109 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/icon/Protickets icon NARANJA 64x64.png">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/icon/Protickets icon NARANJA 64x64.png" />
+    <link rel="stylesheet" href="styles.css" />
     <title>PROTICKETS</title>
-</head>
-<body>
-    <h1>FICHA TÉCNICA </h1>
+  </head>
+  <body>
+    <h1>FICHA TÉCNICA</h1>
     <div class="datasheet">
-        <form id="form">
-            <fieldset>
-                <legend>PRODUCTORA</legend>
-                    <input type="text" placeholder="Nombre de la productora" required>
-                    <input type="text" placeholder="Nombre de quién verá reporte de ventas">
-                    <input type="email" placeholder="Correo electrónico">
-                    <input type="text" placeholder="Razón Social"> 
-                    <input type="number" placeholder="CUIT">
-            </fieldset>
-            <fieldset>
-                <legend>EVENTO</legend>
-                    <input type="text" placeholder="Nombre del evento" required>
-                    <input type="text" placeholder="Nombre del artista o banda" required>
-                    <div>
-                        <select name="genre" id="">
-                            <option value="" disabled selected>Género musical</option>
-                            <option value="rock">Rock</option>.
-                            <option value="pop">Pop</option>
-                            <option value="cumbia">Cumbia</option>
-                            <option value="folklore">Folklore</option>
-                            <option value="electrónica">Electrónica</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
+      <form id="form">
+        <fieldset>
+          <legend>PRODUCTORA</legend>
+          <input type="text" placeholder="Nombre de la productora" required />
+          <input
+            type="text"
+            placeholder="Nombre de quién verá reporte de ventas"
+          />
+          <input
+            type="email"
+            placeholder="Correo electrónico para el reporte de ventas"
+          />
+          <input type="text" placeholder="Razón Social" />
+          <input type="number" placeholder="CUIT" />
+        </fieldset>
+        <fieldset>
+          <legend>EVENTO</legend>
+          <input type="text" placeholder="Nombre del evento" required />
+          <input
+            type="text"
+            placeholder="Nombre del artista o banda"
+            required
+          />
+          <div>
+            <select name="genre" id="">
+              <option value="" disabled selected>Género musical</option>
+              <option value="rock">Rock</option>
+              .
+              <option value="pop">Pop</option>
+              <option value="cumbia">Cumbia</option>
+              <option value="folklore">Folklore</option>
+              <option value="electrónica">Electrónica</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
 
-                    <label for="">Fecha del evento</label>
-                    <input type="date" id="eventDate" name="eventDate" required>
-                    <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue...">
-                        <datalist id="venue">
-                            <option value="Mood Live">
-                            <option value="RucaChe">
-                            <option value="Espacio Duam">
-                            <option value="Cipolletti">
-                            <option value="Centro de Convenciones “Domuyo”">
-                            <option value="Paseo de la Costa">
-                        </datalist>
-                    <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección">
-                        <datalist id="address">
-                            <option value="Ministro Gonzalez 40 ">
-                            <option value="Antártida Argentina 3901">
-                            <option value="San Martin 5901">
-                            <option value="Ruta 151, Calle Canal">
-                            <option value="Isla 132, Paseo de la Costa">
-                        </datalist>
-                    <div id="sectorContainer" class="hidden">
-                        <label for="sectorInput">Configuración de la sala</label>
-                            <input list="sectores" id="sectorInput" name="sector" placeholder="Selecciona un sector...">
-                                <datalist id="sectores">
-                                    <option value="General">
-                                    <option value="Café Concert">
-                                    <option value="Mixto">
-                                </datalist>
-                    </div>
-                    <label for="">Hora de inicio</label>
-                        <input type="time" id="eventTime" name="eventTime" required>
-                    <label for="">Hora de fin</label>
-                        <input type="time" id="eventTime" name="eventTime" required>
-                    <label for="">Apertura de puertas</label>
-                        <input type="time" id="doorsTime" name="doorsTime" required>
-            </fieldset>
-<fieldset class="delivery-format">
-    <legend>FORMATO DE ENTREGA</legend> 
-        <legend>WEB</legend>
-        <div>
-            <input type="checkbox" id="web-quentro" name="web-quentro">
+          <label for="">Fecha del evento</label>
+          <input type="date" id="eventDate" name="eventDate" required />
+          <input
+            list="venue"
+            id="venueName"
+            name="venueName"
+            placeholder="Seleccione o escriba el venue..."
+          />
+          <datalist id="venue">
+            <option value="Mood Live"></option>
+            <option value="RucaChe"></option>
+            <option value="Espacio Duam"></option>
+            <option value="Cipolletti"></option>
+            <option value="Centro de Convenciones “Domuyo”"></option>
+            <option value="Paseo de la Costa"></option>
+          </datalist>
+
+          <input
+            list="address"
+            id="addressLocation"
+            name="addressLocation"
+            placeholder="Dirección"
+          />
+          <datalist id="address">
+            <option value="Ministro Gonzalez 40 "></option>
+            <option value="Antártida Argentina 3901"></option>
+            <option value="San Martin 5901"></option>
+            <option value="Ruta 151, Calle Canal"></option>
+            <option value="Isla 132, Paseo de la Costa"></option>
+          </datalist>
+
+          <div id="sectorContainer" class="hidden">
+            <label for="sectorInput">Configuración de la sala</label>
+            <input
+              list="sectores"
+              id="sectorInput"
+              name="sector"
+              placeholder="Selecciona un sector..."
+            />
+            <datalist id="sectores">
+              <option value="General"></option>
+              <option value="Café Concert"></option>
+              <option value="Mixto"></option>
+            </datalist>
+          </div>
+          <label for="">Hora de inicio</label>
+          <input type="time" id="eventTime" name="eventTime" required />
+          <label for="">Hora de fin</label>
+          <input type="time" id="eventTime" name="eventTime" required />
+          <label for="">Apertura de puertas</label>
+          <input type="time" id="doorsTime" name="doorsTime" required />
+        </fieldset>
+        <fieldset class="delivery-format">
+          <legend>FORMATO DE ENTREGA</legend>
+          <legend>WEB</legend>
+          <div>
+            <input type="checkbox" id="web-quentro" name="web-quentro" />
             <label for="web-quentro">QUENTRO</label>
-        </div>
-        <div>
-            <input type="checkbox" id="web-pdf" name="web-pdf">
+          </div>
+          <div>
+            <input type="checkbox" id="web-pdf" name="web-pdf" />
             <label for="web-pdf">PDF</label>
-        </div>
+          </div>
 
-        <legend>POS</legend>
-        <div>
-            <input type="checkbox" id="pos-quentro" name="pos-quentro">
+          <legend>POS</legend>
+          <div>
+            <input type="checkbox" id="pos-quentro" name="pos-quentro" />
             <label for="pos-quentro">QUENTRO</label>
-        </div>
-        <div>
-            <input type="checkbox" id="pos-pdf" name="pos-pdf">
+          </div>
+          <div>
+            <input type="checkbox" id="pos-pdf" name="pos-pdf" />
             <label for="pos-pdf">PDF</label>
-        </div>
-        <div>
-            <input type="checkbox" id="pos-ticket" name="pos-ticket">
+          </div>
+          <div>
+            <input type="checkbox" id="pos-ticket" name="pos-ticket" />
             <label for="pos-ticket">TICKET IMPRESO</label>
-        </div>
-
-
-</fieldset>
-        </form>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>SECTORIZACIÓN</legend>
+          <table id="miTabla" class="table-wrapper">
+            <thead>
+              <tr>
+                <th>Nombre del Sector</th>
+                <th>Capacidad</th>
+                <th>Dirección de Acceso</th>
+                <th>¿El sector tiene mesas?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" name="dato1[]" /></td>
+                <td><input type="text" name="dato2[]" /></td>
+                <td><input type="text" name="dato3[]" /></td>
+                <td>
+                  <button
+                    class="toggle-btn no"
+                    type="button"
+                    onclick="ciclarOpcionMesa(this)"
+                  >
+                    No
+                  </button>
+                </td>
+                <td>
+                  <button class="delete-btn" onclick="eliminarFila(this)">
+                    Eliminar
+                  </button>
+                </td>
+                <button onclick="agregarFila()">Agregar Fila</button>
+              </tr>
+            </tbody>
+          </table>
+        </fieldset>
+      </form>
     </div>
 
-
-
     <!-- JS -->
-<script src="scripts.js"></script>
-</body>
+    <script src="scripts.js"></script>
+  </body>
 </html>
