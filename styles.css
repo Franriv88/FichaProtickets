@@ -87,6 +87,9 @@ select {
 
 label {
     font-weight: 500;
+    margin-bottom: 0.7rem;
+    margin-top: 1rem;
+    display: block;
 }
 
 .checkbox-group {

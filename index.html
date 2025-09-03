@@ -68,40 +68,48 @@
               <option value="Mixto"></option>
             </datalist>
           </div>
-          <label for="">Fecha del evento</label>
-          <input type="date" id="eventDate" name="eventDate" required />
-          <label for="">Hora de inicio</label>
-          <input type="time" id="eventTime" name="eventTime" required />
-          <label for="">Hora de fin</label>
-          <input type="time" id="eventTime" name="eventTime" required />
-          <label for="">Apertura de puertas</label>
-          <input type="time" id="doorsTime" name="doorsTime" required />
+          <div>
+            <label for="">Fecha del evento</label>
+            <input type="date" id="eventDate" name="eventDate" required />
+            <label for="">Hora de inicio</label>
+            <input type="time" id="eventTime" name="eventTime" required />
+          </div>
+          <div>
+            <label for="">Hora de fin</label>
+            <input type="time" id="eventTime" name="eventTime" required />
+            <label for="">Apertura de puertas</label>
+            <input type="time" id="doorsTime" name="doorsTime" required />
+          </div>
+
         </fieldset>
         <fieldset class="delivery-format">
           <legend>FORMATO DE ENTREGA</legend>
+        <div>
           <legend>WEB</legend>
-          <div>
+          <div class="checkbox-group">
             <input type="checkbox" id="web-quentro" name="web-quentro" />
             <label for="web-quentro">QUENTRO</label>
           </div>
-          <div>
+          <div class="checkbox-group">
             <input type="checkbox" id="web-pdf" name="web-pdf" />
             <label for="web-pdf">PDF</label>
           </div>
-
+        </div>  
+        <div>
           <legend>POS</legend>
-          <div>
+          <div class="checkbox-group">
             <input type="checkbox" id="pos-quentro" name="pos-quentro" />
             <label for="pos-quentro">QUENTRO</label>
           </div>
-          <div>
+          <div class="checkbox-group">
             <input type="checkbox" id="pos-pdf" name="pos-pdf" />
             <label for="pos-pdf">PDF</label>
           </div>
-          <div>
+          <div class="checkbox-group">
             <input type="checkbox" id="pos-ticket" name="pos-ticket" />
             <label for="pos-ticket">TICKET IMPRESO</label>
           </div>
+        </div>
         </fieldset>
         <fieldset>
           <legend>SECTORIZACIÓN</legend>
@@ -160,7 +168,7 @@
           </table>
         </fieldset>
         <fieldset>
-           <legend>Recaudación</legend>
+           <legend>RECAUDACIÓN</legend>
            <select name="" id="">
             <option value="">Grupo 1</option>
             <option value="">Grupo 2</option>
