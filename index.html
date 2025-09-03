@@ -11,18 +11,13 @@
     <h1>FICHA TÉCNICA</h1>
     <div class="datasheet">
       <form id="form">
+        
         <fieldset>
           <legend>PRODUCTORA</legend>
           <input type="text" placeholder="Nombre de la productora" required />
-          <input
-            type="text"
-            placeholder="Nombre de quién verá reporte de ventas"
-          />
-          <input
-            type="email"
-            placeholder="Correo electrónico para el reporte de ventas"
-          />
+          <input type="text" placeholder="Nombre de quién verá reporte de ventas"/>
           <input type="text" placeholder="Razón Social" />
+          <input type="email" placeholder="Correo electrónico para el reporte de ventas"/>
           <input type="number" placeholder="CUIT" />
         </fieldset>
         <fieldset>
@@ -31,13 +26,11 @@
           <input
             type="text"
             placeholder="Nombre del artista o banda"
-            required
-          />
+            required/>
           <div>
             <select name="genre" id="">
               <option value="" disabled selected>Género musical</option>
               <option value="rock">Rock</option>
-              .
               <option value="pop">Pop</option>
               <option value="cumbia">Cumbia</option>
               <option value="folklore">Folklore</option>
@@ -45,15 +38,7 @@
               <option value="otro">Otro</option>
             </select>
           </div>
-
-          <label for="">Fecha del evento</label>
-          <input type="date" id="eventDate" name="eventDate" required />
-          <input
-            list="venue"
-            id="venueName"
-            name="venueName"
-            placeholder="Seleccione o escriba el venue..."
-          />
+          <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..."/>
           <datalist id="venue">
             <option value="Mood Live"></option>
             <option value="RucaChe"></option>
@@ -62,13 +47,7 @@
             <option value="Centro de Convenciones “Domuyo”"></option>
             <option value="Paseo de la Costa"></option>
           </datalist>
-
-          <input
-            list="address"
-            id="addressLocation"
-            name="addressLocation"
-            placeholder="Dirección"
-          />
+          <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección"/>
           <datalist id="address">
             <option value="Ministro Gonzalez 40 "></option>
             <option value="Antártida Argentina 3901"></option>
@@ -76,21 +55,21 @@
             <option value="Ruta 151, Calle Canal"></option>
             <option value="Isla 132, Paseo de la Costa"></option>
           </datalist>
-
           <div id="sectorContainer" class="hidden">
             <label for="sectorInput">Configuración de la sala</label>
             <input
-              list="sectores"
-              id="sectorInput"
-              name="sector"
-              placeholder="Selecciona un sector..."
-            />
+            list="sectores"
+            id="sectorInput"
+            name="sector"
+            placeholder="Seleccione o escriba el formato..."/>
             <datalist id="sectores">
               <option value="General"></option>
               <option value="Café Concert"></option>
               <option value="Mixto"></option>
             </datalist>
           </div>
+          <label for="">Fecha del evento</label>
+          <input type="date" id="eventDate" name="eventDate" required />
           <label for="">Hora de inicio</label>
           <input type="time" id="eventTime" name="eventTime" required />
           <label for="">Hora de fin</label>
@@ -181,6 +160,45 @@
           </table>
         </fieldset>
         <fieldset>
+           <legend>Recaudación</legend>
+           <select name="" id="">
+            <option value="">Grupo 1</option>
+            <option value="">Grupo 2</option>
+            <option value="">Grupo 3</option>
+            <option value="">Grupo 4</option>
+            <option value="">Grupo 5</option>
+            <option value="">Grupo 6</option>
+            <option value="">Grupo 7</option>
+            <option value="">Grupo 8</option>
+            <option value="">Grupo 9</option>
+            <option value="">Grupo 10</option>
+            <option value="">Grupo 11</option>
+            <option value="">Grupo 12</option>
+            <option value="">Grupo 13</option>
+            <option value="">Grupo 14</option>
+            <option value="">Grupo 15</option>
+            <option value="">Grupo 16</option>
+            <option value="">Grupo 17</option>
+            <option value="">Grupo 18</option>
+            <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
+            <option value="YSYA-FIVE_NQN">YSY A - FIVE NQN</option>
+            <option value="Five1">Five 1</option>
+            <option value="Five2">Five 2</option>
+            <option value="Five3">Five 3</option>
+            <option value="Five4">Five 4</option>
+            <option value="Five5">Five 5</option>
+            <option value="Five(NQN)-Grupo1">Five(NQN) - Grupo 1</option>
+            <option value="Five(NQN)-Grupo2">Five(NQN) - Grupo 2</option>
+            <option value="Five(NQN)-Grupo3">Five(NQN) - Grupo 3 (LALI)</option>
+            <option value="Five(NQN)-Grupo4">Five(NQN) - Grupo 4</option>
+            <option value="ProticketsGrupo1">Protickets - Grupo 1</option>
+            <option value="ProticketsGrupo2">Protickets - Grupo 2</option>
+            <option value="ProticketsGrupo3">Protickets - Grupo 3</option>
+            <option value="ProticketsGrupo4">Protickets - Grupo 4</option>
+            <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
+           </select>
+        </fieldset>
+        <fieldset>
           <legend>HOLD</legend>
           <table id="holdTable" class="table-wrapper">
             <thead>
@@ -191,7 +209,6 @@
               </tr>
             </thead>
             <tbody id="holdTableBody">
-              <tbody>
                 <tr>
                   <td><input type="text"></td>
                   <td><input type="number"></td>
@@ -207,13 +224,18 @@
                   <td><input type="number"></td>
                   <td><input type="text"></td>
                 </tr>
-              </tbody>
             </tbody>
         </fieldset>
 
 
+      
+
+
+
+        
       </form>
     </div>
+
 
     <!-- JS -->
     <script src="scripts.js"></script>
