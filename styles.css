@@ -13,6 +13,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
     line-height: 1.6;
     background-color: #f0f2f5; /* Un fondo ligeramente gris para distinguir el contenedor */
     background: #0008 url(https://wallpapercave.com/wp/wp5245989.jpg) no-repeat center center fixed;
@@ -113,8 +114,9 @@ table {
 th, td {
     padding: 0.8rem;
     border: 1px solid var(--border-color);
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
+    font-size: 14px;
 }
 
 th {
