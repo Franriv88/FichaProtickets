@@ -11,8 +11,8 @@
     <h1>FICHA TÉCNICA</h1>
     <div class="datasheet">
       <form id="form">
-        
         <fieldset>
+          <!-- FIELDSET PRODUCTORA -->
           <legend>PRODUCTORA</legend>
           <input type="text" placeholder="Nombre de la productora" required />
           <input type="text" placeholder="Nombre de quién verá reporte de ventas"/>
@@ -21,6 +21,7 @@
           <input type="number" placeholder="CUIT" />
         </fieldset>
         <fieldset>
+          <!-- FIELDSET EVENTO -->
           <legend>EVENTO</legend>
           <input type="text" placeholder="Nombre del evento" required />
           <input
@@ -80,8 +81,8 @@
             <label for="">Apertura de puertas</label>
             <input type="time" id="doorsTime" name="doorsTime" required />
           </div>
-
         </fieldset>
+        <!-- FIELDSET de FORMATO DE ENTREGA -->
         <fieldset class="delivery-format">
           <legend>FORMATO DE ENTREGA</legend>
         <div>
@@ -111,6 +112,7 @@
           </div>
         </div>
         </fieldset>
+        <!-- FIELDSET SECTORIZACIÓN -->
         <fieldset>
           <legend>SECTORIZACIÓN</legend>
           <table id="miTabla" class="table-wrapper">
@@ -136,8 +138,9 @@
             </tbody>
           </table>
         </fieldset>
+        <!-- FIELDSET TARIFAS -->
         <fieldset>
-          <legend>SECTORIZACIÓN</legend>
+          <legend>TARIFAS</legend>
           <table id="losPrecios" class="table-wrapper">
             <thead>
               <tr>
@@ -167,8 +170,10 @@
             </tbody>
           </table>
         </fieldset>
+        <!-- FIELDSET RECAUDACIÓN (Grupos de comercios) -->
         <fieldset>
            <legend>RECAUDACIÓN</legend>
+           <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento</p>
            <select name="" id="">
             <option value="">Grupo 1</option>
             <option value="">Grupo 2</option>
@@ -206,14 +211,37 @@
             <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
            </select>
         </fieldset>
+        <!-- FIELDSET FAQ'S -->
+                 <fieldset>
+          <legend>FAQ's</legend>
+          <div>
+          <label for="">Políticas</label>
+          <p>Política de menores:</p>
+          <textarea name="" id="" cols=""></textarea>
+          <p>Personas con discapacidad:</p>
+          <textarea name="" id="" cols=""></textarea>
+          <p>Otros...</p>
+          <textarea name="" id=""></textarea>
+          </div>
+          <div>
+          <label for="">Soporte y Control de Acceso</label>
+          <p>Reingreso (salir y volver a entrar):</p>
+          <textarea name="" id="" cols=""></textarea>
+          <p>Cambio de fechas:</p>
+          <textarea name="" id="" cols=""></textarea>
+          <p>Otros...</p>
+          <textarea name="" id=""></textarea>
+          </div>
+        </fieldset>
+        <!-- FIELDSET HOLDEOS -->
         <fieldset>
           <legend>HOLD</legend>
           <table id="holdTable" class="table-wrapper">
             <thead>
               <tr>
-                <th>Nombre del SECTOR a reservar</th>
+                <th>Nombre del Sector a reservar</th>
                 <th>Cantidad de Tickets</th>
-                <th>¿Para quién?</th>
+                <th>Nombre del beneficiario</th>
               </tr>
             </thead>
             <tbody id="holdTableBody">
