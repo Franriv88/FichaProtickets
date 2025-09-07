@@ -146,13 +146,12 @@
             <tr>
                 <th>Nombre de la Tarifa</th>
                 <th>Tickets por compra</th>
-                <th>Valor de Tarifa</th>
+                <th>$ Valor de Tarifa</th>
                 <th>% SC Web</th>
                 <th>$ SC Web</th>
                 <th>% SC Boletería</th>
                 <th>$ SC Boletería</th>
                 <th>Tickets por fase</th>
-                <th>Acción</th>
             </tr>
         </thead>
         <tbody id="miTablaBody">
@@ -162,7 +161,7 @@
                 <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0"/></td>
                 <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0"/></td>
                 <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
-                <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="1" min="0"/></td>
+                <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"/></td>
                 <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
                 <td><input type="number" name="ticketsFase[]" /></td>
                 <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
@@ -174,7 +173,7 @@
         <!-- FIELDSET RECAUDACIÓN (Grupos de comercios) -->
         <fieldset>
            <legend>RECAUDACIÓN</legend>
-           <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento</p>
+           <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
            <select name="" id="">
             <option value="">Grupo 1</option>
             <option value="">Grupo 2</option>

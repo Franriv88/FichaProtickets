@@ -240,7 +240,7 @@ function agregarFila2() {
     nuevaFila.innerHTML = `
         <td><input type="text" name="nombreTarifa[]" /></td>
         <td><input type="number" name="ticketsCompra[]" /></td>
-        <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="1000" min="0"/></td>
+        <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0"/></td>
         <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0"/></td>
         <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
         <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"/></td>
