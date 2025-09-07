@@ -224,3 +224,56 @@ textarea{
     resize: vertical; /* Permite redimensionar verticalmente */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
+.marketing-materials {
+    /* ¡ESTA ES LA LÍNEA CLAVE! */
+    grid-column: 1 / -1; /* Hace que el div ocupe las 2 columnas del fieldset */
+    
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
+.item {
+    margin: 0;
+    padding: 1em;
+}
+
+.item:first-child {
+    flex: 2;
+    text-align: left;
+}
+
+.item:nth-child(2) {
+    flex: 1;
+    text-align: center;
+}
+
+.item:last-child {
+    flex: 2;
+    text-align: center;
+}
+
+.negritas {
+    font-weight: bold;
+    color: #f36f21; /* Usé un color de ejemplo */
+}
+
+.negritas{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#caracteristicas{
+    text-align:left;
+}
+
+#dimension{
+    text-align:right;
+}
+
+#peso{
+    text-align:center;
+    font-size: 23px;
+    margin:auto;
+}
