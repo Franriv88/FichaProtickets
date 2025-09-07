@@ -130,40 +130,127 @@ function eliminarFila(boton) {
  * TU FUNCIÓN `agregarFila2`.
  * Ahora crea un botón que llama a la nueva función `ciclarOpcionMesa`.
  */
-function agregarFila2() {
-    // 1. FORMA CORRECTA DE SELECCIONAR EL TBODY (por su ID)
-    var miTablaBody = document.getElementById('miTablaBody');
+// function agregarFila2() {
+//     // 1. FORMA CORRECTA DE SELECCIONAR EL TBODY (por su ID)
+//     var miTablaBody = document.getElementById('miTablaBody');
 
-    // Inserta una nueva fila al final del tbody
-    var nuevaFila = miTablaBody.insertRow();
+//     // Inserta una nueva fila al final del tbody
+//     var nuevaFila = miTablaBody.insertRow();
 
-    // 2. Usamos la variable 'nuevaFila' de forma consistente
-    var celda1 = nuevaFila.insertCell();
-    var celda2 = nuevaFila.insertCell();
-    var celda3 = nuevaFila.insertCell();
-    var celda4 = nuevaFila.insertCell(); 
-    var celda5 = nuevaFila.insertCell(); 
-    var celda6 = nuevaFila.insertCell();
-    var celda7 = nuevaFila.insertCell();
-    var celda8 = nuevaFila.insertCell();
-    var celda9 = nuevaFila.insertCell(); // Celda para el botón de eliminar
+//     // 2. Usamos la variable 'nuevaFila' de forma consistente
+//     var celda1 = nuevaFila.insertCell();
+//     var celda2 = nuevaFila.insertCell();
+//     var celda3 = nuevaFila.insertCell();
+//     var celda4 = nuevaFila.insertCell(); 
+//     var celda5 = nuevaFila.insertCell(); 
+//     var celda6 = nuevaFila.insertCell();
+//     var celda7 = nuevaFila.insertCell();
+//     var celda8 = nuevaFila.insertCell();
+//     var celda9 = nuevaFila.insertCell(); // Celda para el botón de eliminar
 
-    // Insertamos el HTML en cada celda
-    celda1.innerHTML = '<input type="text" name="dato1[]">';
-    celda2.innerHTML = '<input type="text" name="dato2[]">';
-    celda3.innerHTML = '<input type="text" name="dato3[]">';
-    celda4.innerHTML = '<input type="text" name="dato4[]">';
-    celda5.innerHTML = '<input type="text" name="dato5[]">';
-    celda6.innerHTML = '<input type="text" name="dato6[]">';
-    celda7.innerHTML = '<input type="text" name="dato7[]">';
-    celda8.innerHTML = '<input type="text" name="dato8[]">';
+//     // Insertamos el HTML en cada celda
+//     celda1.innerHTML = '<input type="text" name="dato1[]">';
+//     celda2.innerHTML = '<input type="text" name="dato2[]">';
+//     celda3.innerHTML = '<input type="text" name="dato3[]">';
+//     celda4.innerHTML = '<input type="text" name="dato4[]">';
+//     celda5.innerHTML = '<input type="text" name="dato5[]">';
+//     celda6.innerHTML = '<input type="text" name="dato6[]">';
+//     celda7.innerHTML = '<input type="text" name="dato7[]">';
+//     celda8.innerHTML = '<input type="text" name="dato8[]">';
     
-    // 3. EL BOTÓN DEBE LLAMAR A LA FUNCIÓN CORRECTA 'eliminarFila2'
-    celda9.innerHTML = '<button class="delete-btn" type="button" onclick="eliminarFila2(this)">Eliminar</button>';
+//     // 3. EL BOTÓN DEBE LLAMAR A LA FUNCIÓN CORRECTA 'eliminarFila2'
+//     celda9.innerHTML = '<button class="delete-btn" type="button" onclick="eliminarFila2(this)">Eliminar</button>';
+// }
+
+// function eliminarFila2(boton) {
+//     // Esta función ya estaba bien escrita
+//     var fila = boton.closest('tr'); // .closest('tr') es una forma más moderna y segura
+//     fila.remove();
+// }
+
+
+// Archivo: calculos.js
+
+// --- NUEVA FUNCIÓN DE REDONDEO ESPECÍFICO ---
+/**
+ * Redondea un número según las reglas de negocio para la boletería.
+ * - Si la centena es 500 o más, redondea al siguiente millar.
+ * - Si la centena es 499 o menos, redondea al millar actual.
+ * @param {number} numero El número a redondear.
+ * @returns {number} El número redondeado.
+ */
+function redondearBoleteria(numero) {
+    // Esta fórmula logra el redondeo deseado de forma matemática:
+    // 1. Divide el número por 1000 (ej: 3742 -> 3.742)
+    // 2. Lo redondea al entero más cercano (ej: 3.742 -> 4)
+    // 3. Lo multiplica de nuevo por 1000 (ej: 4 -> 4000)
+    return Math.round(numero / 1000) * 1000;
+}
+
+
+// --- LÓGICA DE CÁLCULO (MODIFICADA) ---
+
+function calcularValores(fila) {
+    // 1. Encontrar los inputs dentro de la fila (sin cambios)
+    const valorTarifaInput = fila.querySelector('.valor-tarifa');
+    const porcentajeWebInput = fila.querySelector('.porcentaje-web');
+    const resultadoWebInput = fila.querySelector('.resultado-web');
+    const porcentajeBoleteriaInput = fila.querySelector('.porcentaje-boleteria');
+    const resultadoBoleteriaInput = fila.querySelector('.resultado-boleteria');
+
+    // 2. Obtener los valores (sin cambios)
+    const valorTarifa = parseFloat(valorTarifaInput.value) || 0;
+    const porcentajeWeb = parseFloat(porcentajeWebInput.value) || 0;
+    const porcentajeBoleteria = parseFloat(porcentajeBoleteriaInput.value) || 0;
+
+    // 3. Realizar los cálculos
+    // El cálculo para la Web sigue igual
+    const resultadoWeb = (valorTarifa * porcentajeWeb) / 100;
+    
+    // El cálculo para la Boletería ahora usa la nueva función de redondeo
+    const resultadoBoleteriaCrudo = (valorTarifa * porcentajeBoleteria) / 100;
+    const resultadoBoleteriaRedondeado = redondearBoleteria(resultadoBoleteriaCrudo);
+
+    // 4. Mostrar los resultados
+    // El resultado Web se muestra con 2 decimales, como antes.
+    resultadoWebInput.value = resultadoWeb.toFixed(0);
+    
+    // El resultado Boletería se muestra ya redondeado.
+    resultadoBoleteriaInput.value = resultadoBoleteriaRedondeado;
+}
+
+// --- MANEJO DE LA TABLA (SIN CAMBIOS) ---
+
+const miTablaBody = document.getElementById('miTablaBody');
+
+if (miTablaBody) {
+    miTablaBody.addEventListener('input', function(event) {
+        if (event.target.classList.contains('valor-tarifa') || 
+            event.target.classList.contains('porcentaje-web') || 
+            event.target.classList.contains('porcentaje-boleteria')) 
+        {
+            const filaActual = event.target.closest('tr');
+            calcularValores(filaActual);
+        }
+    });
+}
+
+function agregarFila2() {
+    const nuevaFila = miTablaBody.insertRow();
+    nuevaFila.innerHTML = `
+        <td><input type="text" name="nombreTarifa[]" /></td>
+        <td><input type="number" name="ticketsCompra[]" /></td>
+        <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="1000" min="0"/></td>
+        <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="20" min="0"/></td>
+        <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
+        <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="10" min="0"/></td>
+        <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
+        <td><input type="number" name="ticketsFase[]" /></td>
+        <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
+    `;
 }
 
 function eliminarFila2(boton) {
-    // Esta función ya estaba bien escrita
-    var fila = boton.closest('tr'); // .closest('tr') es una forma más moderna y segura
+    const fila = boton.closest('tr');
     fila.remove();
 }

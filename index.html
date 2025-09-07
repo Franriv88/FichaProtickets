@@ -139,37 +139,38 @@
           </table>
         </fieldset>
         <!-- FIELDSET TARIFAS -->
-        <fieldset>
-          <legend>TARIFAS</legend>
-          <table id="losPrecios" class="table-wrapper">
-            <thead>
-              <tr>
+<fieldset>
+    <legend>TARIFAS</legend>
+    <table id="losPrecios" class="table-wrapper">
+        <thead>
+            <tr>
                 <th>Nombre de la Tarifa</th>
                 <th>Tickets por compra</th>
                 <th>Valor de Tarifa</th>
-                <th>% SC</th>
+                <th>% SC Web</th>
                 <th>$ SC Web</th>
-                <th>% SC</th>
+                <th>% SC Boletería</th>
                 <th>$ SC Boletería</th>
                 <th>Tickets por fase</th>
-              </tr>
-            </thead>
-            <tbody id="miTablaBody">
-              <tr>
-                <td><input type="text" name="dato1[]" /></td>
-                <td><input type="text" name="dato2[]" /></td>
-                <td><input type="text" name="dato3[]" /></td>
-                <td><input type="text" name="dato4[]" /></td>
-                <td><input type="text" name="dato5[]" /></td>
-                <td><input type="text" name="dato6[]" /></td>
-                <td><input type="text" name="dato7[]" /></td>
-                <td><input type="text" name="dato8[]" /></td>
-                <td><button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button></td>
-                <button onclick="agregarFila2()">Agregar Fila</button>
-              </tr>
-            </tbody>
-          </table>
-        </fieldset>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody id="miTablaBody">
+            <tr>
+                <td><input type="text" name="nombreTarifa[]" /></td>
+                <td><input type="number" name="ticketsCompra[]" /></td>
+                <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0"/></td>
+                <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0"/></td>
+                <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
+                <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"/></td>
+                <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
+                <td><input type="number" name="ticketsFase[]" /></td>
+                <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="agregarFila2()">Agregar Fila</button>
+</fieldset>
         <!-- FIELDSET RECAUDACIÓN (Grupos de comercios) -->
         <fieldset>
            <legend>RECAUDACIÓN</legend>
