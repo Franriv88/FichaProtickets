@@ -241,13 +241,12 @@ function agregarFila2() {
         <td><input type="text" name="nombreTarifa[]" /></td>
         <td><input type="number" name="ticketsCompra[]" /></td>
         <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="1000" min="0"/></td>
-        <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="20" min="0"/></td>
+        <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0"/></td>
         <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
-        <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="10" min="0"/></td>
+        <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"/></td>
         <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
         <td><input type="number" name="ticketsFase[]" /></td>
-        <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
-    `;
+        <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>`;
 }
 
 function eliminarFila2(boton) {
