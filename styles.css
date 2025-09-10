@@ -277,3 +277,41 @@ textarea{
     font-size: 23px;
     margin:auto;
 }
+
+/* Únicamente para crear el PDF */
+/* ======================================================= */
+/* ===         CSS FINAL (VERSIÓN SIMPLIFICADA)        === */
+/* ======================================================= */
+/* ===== REGLAS DE IMPRESIÓN PARA EL PDF (AGREGAR AL FINAL DE styles.css) ===== */
+
+/* ===== REGLAS DE IMPRESIÓN (VERSIÓN FINAL CON ROTACIÓN) ===== */
+
+@media print {
+    @page {
+        /* Usamos la versión más explícita para máxima compatibilidad */
+        size: A3 landscape; 
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    #contenido-a-pdf, #contenido-a-pdf * {
+        visibility: visible;
+    }
+
+    #contenido-a-pdf {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    #btnGenerarPdf {
+        display: none !important;
+    }
+}

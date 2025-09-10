@@ -253,3 +253,18 @@ function eliminarFila2(boton) {
     const fila = boton.closest('tr');
     fila.remove();
 }
+
+
+// Agregá este código al final de tu archivo scripts.js
+
+// ===== ARCHIVO scripts.js (VERSIÓN FINAL CON window.print) =====
+
+document.addEventListener('DOMContentLoaded', () => {
+    const botonPdf = document.getElementById('btnGenerarPdf');
+
+    if (botonPdf) {
+        botonPdf.addEventListener('click', () => {
+            window.print();
+        });
+    }
+});

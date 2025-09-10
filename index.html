@@ -6,309 +6,311 @@
     <link rel="icon" href="/icon/Protickets icon NARANJA 64x64.png" />
     <link rel="stylesheet" href="styles.css" />
     <title>PROTICKETS</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
-    <h1>FICHA TÉCNICA</h1>
-    <div class="datasheet">
-      <form id="form">
-        <fieldset>
-          <!-- FIELDSET PRODUCTORA -->
-          <legend>PRODUCTORA</legend>
-          <input type="text" placeholder="Nombre de la productora" required />
-          <input type="text" placeholder="Nombre de quién verá reporte de ventas"/>
-          <input type="text" placeholder="Razón Social" />
-          <input type="email" placeholder="Correo electrónico para el reporte de ventas"/>
-          <input type="number" placeholder="CUIT" />
-        </fieldset>
-        <fieldset>
-          <!-- FIELDSET EVENTO -->
-          <legend>EVENTO</legend>
-          <input type="text" placeholder="Nombre del evento" required />
-          <input
-            type="text"
-            placeholder="Nombre del artista o banda"
-            required/>
-          <div>
-            <select name="genre" id="">
-              <option value="" disabled selected>Género musical</option>
-              <option value="rock">Rock</option>
-              <option value="pop">Pop</option>
-              <option value="cumbia">Cumbia</option>
-              <option value="folklore">Folklore</option>
-              <option value="electrónica">Electrónica</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-          <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..."/>
-          <datalist id="venue">
-            <option value="Mood Live"></option>
-            <option value="RucaChe"></option>
-            <option value="Espacio Duam"></option>
-            <option value="Cipolletti"></option>
-            <option value="Centro de Convenciones “Domuyo”"></option>
-            <option value="Paseo de la Costa"></option>
-          </datalist>
-          <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección"/>
-          <datalist id="address">
-            <option value="Ministro Gonzalez 40 "></option>
-            <option value="Antártida Argentina 3901"></option>
-            <option value="San Martin 5901"></option>
-            <option value="Ruta 151, Calle Canal"></option>
-            <option value="Isla 132, Paseo de la Costa"></option>
-          </datalist>
-          <div id="sectorContainer" class="hidden">
-            <label for="sectorInput">Configuración de la sala</label>
-            <input
-            list="sectores"
-            id="sectorInput"
-            name="sector"
-            placeholder="Seleccione o escriba el formato..."/>
-            <datalist id="sectores">
-              <option value="General"></option>
-              <option value="Café Concert"></option>
-              <option value="Mixto"></option>
+    <div id="contenido-a-pdf">
+      <h1>FICHA TÉCNICA</h1>
+      <div class="datasheet">
+        <form id="form">
+          <fieldset>
+            <legend>PRODUCTORA</legend>
+            <input type="text" placeholder="Nombre de la productora" required />
+            <input type="text" placeholder="Nombre de quién verá reporte de ventas" />
+            <input type="text" placeholder="Razón Social" />
+            <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
+            <input type="number" placeholder="CUIT" />
+          </fieldset>
+          
+          <fieldset>
+            <legend>EVENTO</legend>
+            <input type="text" placeholder="Nombre del evento" required />
+            <input type="text" placeholder="Nombre del artista o banda" required />
+            <div>
+              <select name="genre" id="">
+                <option value="" disabled selected>Género musical</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="cumbia">Cumbia</option>
+                <option value="folklore">Folklore</option>
+                <option value="electrónica">Electrónica</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
+            <datalist id="venue">
+              <option value="Mood Live"></option>
+              <option value="RucaChe"></option>
+              <option value="Espacio Duam"></option>
+              <option value="Cipolletti"></option>
+              <option value="Centro de Convenciones “Domuyo”"></option>
+              <option value="Paseo de la Costa"></option>
             </datalist>
-          </div>
-          <div>
-            <label for="">Fecha del evento</label>
-            <input type="date" id="eventDate" name="eventDate" required />
-            <label for="">Hora de inicio</label>
-            <input type="time" id="eventTime" name="eventTime" required />
-          </div>
-          <div>
-            <label for="">Hora de fin</label>
-            <input type="time" id="eventTime" name="eventTime" required />
-            <label for="">Apertura de puertas</label>
-            <input type="time" id="doorsTime" name="doorsTime" required />
-          </div>
-        </fieldset>
-        <!-- FIELDSET de FORMATO DE ENTREGA -->
-        <fieldset class="delivery-format">
-          <legend>FORMATO DE ENTREGA</legend>
-        <div>
-          <legend>WEB</legend>
-          <div class="checkbox-group">
-            <input type="checkbox" id="web-quentro" name="web-quentro" />
-            <label for="web-quentro">QUENTRO</label>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="web-pdf" name="web-pdf" />
-            <label for="web-pdf">PDF</label>
-          </div>
-        </div>  
-        <div>
-          <legend>POS</legend>
-          <div class="checkbox-group">
-            <input type="checkbox" id="pos-quentro" name="pos-quentro" />
-            <label for="pos-quentro">QUENTRO</label>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="pos-pdf" name="pos-pdf" />
-            <label for="pos-pdf">PDF</label>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="pos-ticket" name="pos-ticket" />
-            <label for="pos-ticket">TICKET IMPRESO</label>
-          </div>
-        </div>
-        </fieldset>
-        <!-- FIELDSET SECTORIZACIÓN -->
-        <fieldset>
-          <legend>SECTORIZACIÓN</legend>
-          <table id="miTabla" class="table-wrapper">
-            <thead>
-              <tr>
-                <th>Nombre del Sector</th>
-                <th>Capacidad</th>
-                <th>Dirección de Acceso</th>
-                <th>¿El sector tiene mesas?</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="text" name="dato1[]" /></td>
-                <td><input type="text" name="dato2[]" /></td>
-                <td><input type="text" name="dato3[]" /></td>
-                <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
-                <td>
-                  <button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button>
-                </td>
-                <button onclick="agregarFila()">Agregar Fila</button>
-              </tr>
-            </tbody>
-          </table>
-        </fieldset>
-        <!-- FIELDSET TARIFAS -->
-<fieldset>
-    <legend>TARIFAS</legend>
-    <table id="losPrecios" class="table-wrapper">
-        <thead>
-            <tr>
-                <th>Nombre de la Tarifa</th>
-                <th>Tickets por compra</th>
-                <th>$ Valor de Tarifa</th>
-                <th>% SC Web</th>
-                <th>$ SC Web</th>
-                <th>% SC Boletería</th>
-                <th>$ SC Boletería</th>
-                <th>Tickets por fase</th>
-            </tr>
-        </thead>
-        <tbody id="miTablaBody">
-            <tr>
-                <td><input type="text" name="nombreTarifa[]" /></td>
-                <td><input type="number" name="ticketsCompra[]" /></td>
-                <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0"/></td>
-                <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0"/></td>
-                <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
-                <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"/></td>
-                <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
-                <td><input type="number" name="ticketsFase[]" /></td>
-                <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <button onclick="agregarFila2()">Agregar Fila</button>
-</fieldset>
-        <!-- FIELDSET RECAUDACIÓN (Grupos de comercios) -->
-        <fieldset>
-           <legend>RECAUDACIÓN</legend>
-           <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
-           <select name="" id="">
-            <option value="">Grupo 1</option>
-            <option value="">Grupo 2</option>
-            <option value="">Grupo 3</option>
-            <option value="">Grupo 4</option>
-            <option value="">Grupo 5</option>
-            <option value="">Grupo 6</option>
-            <option value="">Grupo 7</option>
-            <option value="">Grupo 8</option>
-            <option value="">Grupo 9</option>
-            <option value="">Grupo 10</option>
-            <option value="">Grupo 11</option>
-            <option value="">Grupo 12</option>
-            <option value="">Grupo 13</option>
-            <option value="">Grupo 14</option>
-            <option value="">Grupo 15</option>
-            <option value="">Grupo 16</option>
-            <option value="">Grupo 17</option>
-            <option value="">Grupo 18</option>
-            <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
-            <option value="YSYA-FIVE_NQN">YSY A - FIVE NQN</option>
-            <option value="Five1">Five 1</option>
-            <option value="Five2">Five 2</option>
-            <option value="Five3">Five 3</option>
-            <option value="Five4">Five 4</option>
-            <option value="Five5">Five 5</option>
-            <option value="Five(NQN)-Grupo1">Five(NQN) - Grupo 1</option>
-            <option value="Five(NQN)-Grupo2">Five(NQN) - Grupo 2</option>
-            <option value="Five(NQN)-Grupo3">Five(NQN) - Grupo 3 (LALI)</option>
-            <option value="Five(NQN)-Grupo4">Five(NQN) - Grupo 4</option>
-            <option value="ProticketsGrupo1">Protickets - Grupo 1</option>
-            <option value="ProticketsGrupo2">Protickets - Grupo 2</option>
-            <option value="ProticketsGrupo3">Protickets - Grupo 3</option>
-            <option value="ProticketsGrupo4">Protickets - Grupo 4</option>
-            <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
-           </select>
-        </fieldset>
-        <!-- FIELDSET FAQ'S -->
-        <fieldset>
-          <legend>FAQ's</legend>
-          <div>
-          <label for="">Políticas</label>
-          <p>Política de menores:</p>
-          <textarea name="" id="" cols="">APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea>
-          <p>Personas con discapacidad:</p>
-          <textarea name="" id="" cols="">El ingreso para personas con discapacidad es gratuito por ley municipal con acreditación previa en boletería ( original y copias presentan) hasta 48 hs antes del show o hasta agotar cupo! En formato Café Concert solo se toman 6 con acompañante o hasta 12 cupos ( 3 mesas), y de pie hasta 20 cupos.</textarea>
-          <p>Otros...</p>
-          <textarea name="" id=""></textarea>
-          </div>
-          <div>
-          <label for="">Soporte y Control de Acceso</label>
-          <p>Reingreso (salir y volver a entrar):</p>
-          <textarea name="" id="" cols="">No está permitido el reingreso al evento una vez abandonado el recinto.</textarea>
-          <p>Cambio de fechas:</p>
-          <textarea name="" id="" cols="">No está permitido el cambio de fecha una vez adquiridas las entradas.</textarea>
-          <p>Otros...</p>
-          <textarea name="" id=""></textarea>
-          </div>
-        </fieldset>
-<!-- FIELDSET MATERIALES DE MARKETING -->
-        <fieldset>
-          <legend>MATERIALES DE MARKETING</legend>
-          <div class="marketing-materials">
-            <div class="item" id="peso">
-              <p>Todas las imágenes deberán tener un pesó máximo de <span class="negritas">1Mb</span> y estar en formato <span class="negritas">.png</span></p>
+            <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección" />
+            <datalist id="address">
+              <option value="Ministro Gonzalez 40 "></option>
+              <option value="Antártida Argentina 3901"></option>
+              <option value="San Martin 5901"></option>
+              <option value="Ruta 151, Calle Canal"></option>
+              <option value="Isla 132, Paseo de la Costa"></option>
+            </datalist>
+            <div id="sectorContainer" class="hidden">
+              <label for="sectorInput">Configuración de la sala</label>
+              <input list="sectores" id="sectorInput" name="sector" placeholder="Seleccione o escriba el formato..." />
+              <datalist id="sectores">
+                <option value="General"></option>
+                <option value="Café Concert"></option>
+                <option value="Mixto"></option>
+              </datalist>
             </div>
-            <div class="item" id="dimension">
-              <label for="">Ancho x Alto</label>
-              <p>
-                640<span class="negritas"> x </span>640<br>
-                1920<span class="negritas"> x </span>720<br>
-                768<span class="negritas"> x </span>500<br>
-                1920<span class="negritas"> x </span>277<br>
-                768<span class="negritas"> x </span>277<br>
-                768<span class="negritas"> x </span>500<br>
-                768<span class="negritas"> x </span>500<br>
-                768<span class="negritas"> x </span>500<br>
-                1920<span class="negritas"> x </span>720<br>
-              </p>
+            <div>
+              <label for="">Fecha del evento</label>
+              <input type="date" id="eventDate" name="eventDate" required />
+              <label for="">Hora de inicio</label>
+              <input type="time" id="eventTime" name="eventTime" required />
             </div>
-            <div class="item" id="caracteristicas">
-              <label for="">Caracteristicas</label>
-              <p>
-                Imagen del evento <br>
-                Banner para Landing principal <br>
-                Banner para Landing principal (Mobile) <br>
-                Sponsors (<span class="negritas">sin fondo</span>, en color y/o en negro) <br>
-                Sponsors (<span class="negritas">sin fondo</span>, en color y/o en negro) <br>
-                Logo de la banda o evento (<sapn class="negritas">sin fondo</sapn>, en color y/o en blanco)<br>
-                Logo de la banda o evento (<sapn class="negritas">sin fondo</sapn>, en color y/o en negro)<br>
-                Logo para el ticket impreso (<span class="negritas">en negro</span> y sin fondo)<br>
-                Fondo usado en las gráfcas
-              </p>
+            <div>
+              <label for="">Hora de fin</label>
+              <input type="time" id="eventTime" name="eventTime" required />
+              <label for="">Apertura de puertas</label>
+              <input type="time" id="doorsTime" name="doorsTime" required />
             </div>
-          </div>
-        </fieldset>
-<!-- FIELDSET HOLDEOS -->
-        <fieldset>
-          <legend>HOLD</legend>
-          <table id="holdTable" class="table-wrapper">
-            <thead>
-              <tr>
-                <th>Nombre del Sector a reservar</th>
-                <th>Cantidad de Tickets</th>
-                <th>Nombre del beneficiario</th>
-              </tr>
-            </thead>
-            <tbody id="holdTableBody">
+          </fieldset>
+
+          <fieldset class="delivery-format">
+            <legend>FORMATO DE ENTREGA</legend>
+            <div>
+              <legend>WEB</legend>
+              <div class="checkbox-group">
+                <input type="checkbox" id="web-quentro" name="web-quentro" />
+                <label for="web-quentro">QUENTRO</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="web-pdf" name="web-pdf" />
+                <label for="web-pdf">PDF</label>
+              </div>
+            </div>
+            <div>
+              <legend>POS</legend>
+              <div class="checkbox-group">
+                <input type="checkbox" id="pos-quentro" name="pos-quentro" />
+                <label for="pos-quentro">QUENTRO</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="pos-pdf" name="pos-pdf" />
+                <label for="pos-pdf">PDF</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="pos-ticket" name="pos-ticket" />
+                <label for="pos-ticket">TICKET IMPRESO</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>SECTORIZACIÓN</legend>
+            <table id="miTabla" class="table-wrapper">
+              <thead>
                 <tr>
-                  <td><input type="text"></td>
-                  <td><input type="number"></td>
-                  <td><input type="text"></td>
+                  <th>Nombre del Sector</th>
+                  <th>Capacidad</th>
+                  <th>Dirección de Acceso</th>
+                  <th>¿El sector tiene mesas?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" name="dato1[]" /></td>
+                  <td><input type="text" name="dato2[]" /></td>
+                  <td><input type="text" name="dato3[]" /></td>
+                  <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
+                  <td>
+                    <button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button>
+                  </td>
+                  <button onclick="agregarFila()">Agregar Fila</button>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+
+          <fieldset>
+            <legend>TARIFAS</legend>
+            <table id="losPrecios" class="table-wrapper">
+              <thead>
+                <tr>
+                  <th>Nombre de la Tarifa</th>
+                  <th>Tickets por compra</th>
+                  <th>$ Valor de Tarifa</th>
+                  <th>% SC Web</th>
+                  <th>$ SC Web</th>
+                  <th>% SC Boletería</th>
+                  <th>$ SC Boletería</th>
+                  <th>Tickets por fase</th>
+                </tr>
+              </thead>
+              <tbody id="miTablaBody">
+                <tr>
+                  <td><input type="text" name="nombreTarifa[]" /></td>
+                  <td><input type="number" name="ticketsCompra[]" /></td>
+                  <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0" /></td>
+                  <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
+                  <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
+                  <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0" /></td>
+                  <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
+                  <td><input type="number" name="ticketsFase[]" /></td>
+                  <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <button onclick="agregarFila2()">Agregar Fila</button>
+          </fieldset>
+
+          <fieldset>
+            <legend>RECAUDACIÓN</legend>
+            <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
+            <select name="" id="">
+              <option value="">Grupo 1</option>
+              <option value="">Grupo 2</option>
+              <option value="">Grupo 3</option>
+              <option value="">Grupo 4</option>
+              <option value="">Grupo 5</option>
+              <option value="">Grupo 6</option>
+              <option value="">Grupo 7</option>
+              <option value="">Grupo 8</option>
+              <option value="">Grupo 9</option>
+              <option value="">Grupo 10</option>
+              <option value="">Grupo 11</option>
+              <option value="">Grupo 12</option>
+              <option value="">Grupo 13</option>
+              <option value="">Grupo 14</option>
+              <option value="">Grupo 15</option>
+              <option value="">Grupo 16</option>
+              <option value="">Grupo 17</option>
+              <option value="">Grupo 18</option>
+              <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
+              <option value="YSYA-FIVE_NQN">YSY A - FIVE NQN</option>
+              <option value="Five1">Five 1</option>
+              <option value="Five2">Five 2</option>
+              <option value="Five3">Five 3</option>
+              <option value="Five4">Five 4</option>
+              <option value="Five5">Five 5</option>
+              <option value="Five(NQN)-Grupo1">Five(NQN) - Grupo 1</option>
+              <option value="Five(NQN)-Grupo2">Five(NQN) - Grupo 2</option>
+              <option value="Five(NQN)-Grupo3">Five(NQN) - Grupo 3 (LALI)</option>
+              <option value="Five(NQN)-Grupo4">Five(NQN) - Grupo 4</option>
+              <option value="ProticketsGrupo1">Protickets - Grupo 1</option>
+              <option value="ProticketsGrupo2">Protickets - Grupo 2</option>
+              <option value="ProticketsGrupo3">Protickets - Grupo 3</option>
+              <option value="ProticketsGrupo4">Protickets - Grupo 4</option>
+              <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
+            </select>
+          </fieldset>
+
+          <fieldset>
+            <legend>FAQ's</legend>
+            <div>
+              <label for="">Políticas</label>
+              <p>Política de menores:</p>
+              <textarea name="" id="" cols="">APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea>
+              <p>Personas con discapacidad:</p>
+              <textarea name="" id="" cols="">El ingreso para personas con discapacidad es gratuito por ley municipal con acreditación previa en boletería ( original y copias presentan) hasta 48 hs antes del show o hasta agotar cupo! En formato Café Concert solo se toman 6 con acompañante o hasta 12 cupos ( 3 mesas), y de pie hasta 20 cupos.</textarea>
+              <p>Otros...</p>
+              <textarea name="" id=""></textarea>
+            </div>
+            <div>
+              <label for="">Soporte y Control de Acceso</label>
+              <p>Reingreso (salir y volver a entrar):</p>
+              <textarea name="" id="" cols="">No está permitido el reingreso al evento una vez abandonado el recinto.</textarea>
+              <p>Cambio de fechas:</p>
+              <textarea name="" id="" cols="">No está permitido el cambio de fecha una vez adquiridas las entradas.</textarea>
+              <p>Otros...</p>
+              <textarea name="" id=""></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>MATERIALES DE MARKETING</legend>
+            <div class="marketing-materials">
+              <div class="item" id="peso">
+                <p>Todas las imágenes deberán tener un pesó máximo de <span class="negritas">1Mb</span> y estar en formato <span class="negritas">.png</span></p>
+              </div>
+              <div class="item" id="dimension">
+                <label for="">Ancho x Alto</label>
+                <p>
+                  640<span class="negritas"> x </span>640<br />
+                  1920<span class="negritas"> x </span>720<br />
+                  768<span class="negritas"> x </span>500<br />
+                  1920<span class="negritas"> x </span>277<br />
+                  768<span class="negritas"> x </span>277<br />
+                  768<span class="negritas"> x </span>500<br />
+                  768<span class="negritas"> x </span>500<br />
+                  768<span class="negritas"> x </span>500<br />
+                  1920<span class="negritas"> x </span>720<br />
+                </p>
+              </div>
+              <div class="item" id="caracteristicas">
+                <label for="">Caracteristicas</label>
+                <p>
+                  Imagen del evento <br />
+                  Banner para Landing principal <br />
+                  Banner para Landing principal (Mobile) <br />
+                  Sponsors (<span class="negritas">sin fondo</span>, en color y/o en negro) <br />
+                  Sponsors (<span class="negritas">sin fondo</span>, en color y/o en negro) <br />
+                  Logo de la banda o evento (<sapn class="negritas">sin fondo</sapn>, en color y/o en blanco)<br />
+                  Logo de la banda o evento (<sapn class="negritas">sin fondo</sapn>, en color y/o en negro)<br />
+                  Logo para el ticket impreso (<span class="negritas">en negro</span> y sin fondo)<br />
+                  Fondo usado en las gráfcas
+                </p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>HOLD</legend>
+            <table id="holdTable" class="table-wrapper">
+              <thead>
+                <tr>
+                  <th>Nombre del Sector a reservar</th>
+                  <th>Cantidad de Tickets</th>
+                  <th>Nombre del beneficiario</th>
+                </tr>
+              </thead>
+              <tbody id="holdTableBody">
+                <tr>
+                  <td><input type="text" /></td>
+                  <td><input type="number" /></td>
+                  <td><input type="text" /></td>
                 </tr>
                 <tr>
-                  <td><input type="text"></td>
-                  <td><input type="number"></td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
+                  <td><input type="number" /></td>
+                  <td><input type="text" /></td>
                 </tr>
                 <tr>
-                  <td><input type="text"></td>
-                  <td><input type="number"></td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
+                  <td><input type="number" /></td>
+                  <td><input type="text" /></td>
                 </tr>
-            </tbody>
-        </fieldset>
-      
-
-
-
-        
-      </form>
+              </tbody>
+            </table>
+          </fieldset>
+        </form>
+      </div>
     </div>
 
+    <div style="text-align: center; padding: 20px;">
+        <button id="btnGenerarPdf">Generar PDF</button>
+<p style="font-size: 12px; color: #666; text-align: center;">
+    💡 **Nota:** Al generar el PDF, asegurate de seleccionar <strong>"Guardar como PDF"</strong> como destino para un resultado óptimo.
+</p>
+    </div>
 
-    <!-- JS -->
     <script src="scripts.js"></script>
   </body>
 </html>
