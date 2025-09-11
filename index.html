@@ -26,7 +26,7 @@
         <form id="form">
           <fieldset>
             <legend>PRODUCTORA</legend>
-            <input type="text" placeholder="Nombre de la productora" required />
+            <input type="text" placeholder="Nombre de la productora"    />
             <input type="text" placeholder="Nombre de quién verá reporte de ventas" />
             <input type="text" placeholder="Razón Social" />
             <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
@@ -35,8 +35,8 @@
           
           <fieldset>
             <legend>EVENTO</legend>
-            <input type="text" placeholder="Nombre del evento" required />
-            <input type="text" placeholder="Nombre del artista o banda" required />
+            <input type="text" placeholder="Nombre del evento"    />
+            <input type="text" placeholder="Nombre del artista o banda"    />
             <div>
               <select name="genre" id="">
                 <option value="" disabled selected>Género musical</option>
@@ -76,15 +76,15 @@
             </div>
             <div>
               <label for="">Fecha del evento</label>
-              <input type="date" id="eventDate" name="eventDate" required />
+              <input type="date" id="eventDate" name="eventDate"    />
               <label for="">Hora de inicio</label>
-              <input type="time" id="eventTime" name="eventTime" required />
+              <input type="time" id="eventTime" name="eventTime"    />
             </div>
             <div>
               <label for="">Hora de fin</label>
-              <input type="time" id="eventTime" name="eventTime" required />
+              <input type="time" id="eventTime" name="eventTime"    />
               <label for="">Apertura de puertas</label>
-              <input type="time" id="doorsTime" name="doorsTime" required />
+              <input type="time" id="doorsTime" name="doorsTime"    />
             </div>
           </fieldset>
 
@@ -120,6 +120,7 @@
 
           <fieldset>
             <legend>SECTORIZACIÓN</legend>
+            <button type="button" onclick="agregarFila()">Agregar Fila</button>
             <table id="miTabla" class="table-wrapper">
               <thead>
                 <tr>
@@ -138,7 +139,6 @@
                   <td>
                     <button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button>
                   </td>
-                  <button onclick="agregarFila()">Agregar Fila</button>
                 </tr>
               </tbody>
             </table>
@@ -146,6 +146,7 @@
 
           <fieldset>
             <legend>TARIFAS</legend>
+            <button type="button" onclick="agregarFila2()">Agregar Fila</button>
             <table id="losPrecios" class="table-wrapper">
               <thead>
                 <tr>
@@ -171,7 +172,6 @@
                   <td><input type="number" name="ticketsFase[]" /></td>
                   <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
                 </tr>
-                <button onclick="agregarFila2()">Agregar Fila</button>
               </tbody>
             </table>
           </fieldset>
