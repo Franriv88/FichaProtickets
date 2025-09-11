@@ -111,6 +111,51 @@ input[type="checkbox"] {
     height: 1.5em;
 }
 
+/* --- Estilos para la tabla y los inputs --- */
+
+/* Hacemos que la tabla ocupe todo el ancho disponible */
+#losPrecios {
+    width: 100%;
+    border-collapse: collapse; /* Mejora la apariencia de los bordes */
+}
+
+/* Hacemos que todos los inputs dentro de la tabla se expandan 
+   al 100% del ancho de la celda (<td>) que los contiene */
+#losPrecios input[type="text"],
+#losPrecios input[type="number"] {
+    width: 100%;
+    box-sizing: border-box; /* Evita que el padding o borde añada ancho extra */
+    padding: 5px; /* Un poco de espacio interno para que se vea mejor */
+}
+
+/* --- Definición de anchos específicos para cada columna --- */
+
+/* La columna más ancha para el nombre */
+.col-nombre-tarifa {
+    width: 25%; 
+}
+
+/* Columnas para valores numéricos, más pequeñas */
+.col-tickets-compra,
+.col-porcentaje-web,
+.col-porcentaje-pos{
+    width: 7%;
+}
+
+.col-tickets-fase{
+    width: 10%;
+}
+
+/* Columnas para valores monetarios */
+.col-valor-tarifa,
+.col-resultado-web,
+.col-resultado-pos {
+    width: 15%;
+}
+
+/* Ajusta estos porcentajes según tu necesidad. 
+   La suma no tiene por qué ser 100% exacto, el navegador lo ajustará. */
+
 /* --- Estilos de la Tabla (Solo vista de escritorio) --- */
 .table-wrapper {
     width: 100%;

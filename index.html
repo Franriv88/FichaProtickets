@@ -133,11 +133,11 @@
               <tbody>
                 <tr>
                   <td><input type="text" name="dato1[]" /></td>
-                  <td><input type="text" name="dato2[]" /></td>
+                  <td class="valores"><input type="text" name="dato2[]"  /></td>
                   <td><input type="text" name="dato3[]" /></td>
                   <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
                   <td>
-                    <button class="delete-btn" onclick="eliminarFila(this)">Eliminar</button>
+                    <button class="delete-btn" onclick="eliminarFila(this)">X</button>
                   </td>
                 </tr>
               </tbody>
@@ -145,37 +145,36 @@
           </fieldset>
 
           <fieldset>
-            <legend>TARIFAS</legend>
-            <button type="button" onclick="agregarFila2()">Agregar Fila</button>
-            <table id="losPrecios" class="table-wrapper">
-              <thead>
-                <tr>
-                  <th>Nombre de la Tarifa</th>
-                  <th>Tickets por compra</th>
-                  <th>$ Valor de Tarifa</th>
-                  <th>% SC Web</th>
-                  <th>$ SC Web</th>
-                  <th>% SC Boletería</th>
-                  <th>$ SC Boletería</th>
-                  <th>Tickets por fase</th>
-                </tr>
-              </thead>
-              <tbody id="miTablaBody">
-                <tr>
-                  <td><input type="text" name="nombreTarifa[]" /></td>
-                  <td><input type="number" name="ticketsCompra[]" /></td>
-                  <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0" /></td>
-                  <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
-                  <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
-                  <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0" /></td>
-                  <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
-                  <td><input type="number" name="ticketsFase[]" /></td>
-                  <td><button class="delete-btn" onclick="eliminarFila2(this)">Eliminar</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </fieldset>
-
+    <legend>TARIFAS</legend>
+    <button type="button" onclick="agregarFila2()">Agregar Fila</button>
+    <table id="losPrecios" class="table-wrapper">
+        <thead>
+            <tr>
+                <th>Nombre de la Tarifa</th>
+                <th>Tickets por compra</th>
+                <th>$ Valor de Tarifa</th>
+                <th>% SC Web</th>
+                <th>$ SC Web</th>
+                <th>% SC POS</th>
+                <th>$ SC POS</th>
+                <th>Tickets por fase</th>
+            </tr>
+        </thead>
+        <tbody id="miTablaBody">
+          <tr>
+            <td class="col-nombre-tarifa"><input type="text" name="nombreTarifa[]" /></td>
+            <td class="col-tickets-compra"><input type="number" name="ticketsCompra[]" /></td>
+            <td class="col-valor-tarifa"><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0" /></td>
+            <td class="col-porcentaje-web"><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
+            <td class="col-resultado-web"><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
+            <td class="col-porcentaje-pos"><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"></td>
+            <td class="col-resultado-pos"><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
+            <td class="col-tickets-fase"><input type="number" name="ticketsFase[]" /></td>
+            <td><button class="delete-btn" onclick="eliminarFila2(this)">X</button></td>
+          </tr>
+        </tbody>
+    </table>
+  </fieldset>
           <fieldset>
             <legend>RECAUDACIÓN</legend>
             <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
