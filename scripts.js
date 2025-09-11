@@ -254,6 +254,47 @@ function eliminarFila2(boton) {
     fila.remove();
 }
 
+// Asigna el evento al botón que genera el PDF
+document.getElementById('btnGenerarPdf').addEventListener('click', function() {
+    // Referencias a las dos imágenes
+    const logoWeb = document.getElementById('logo-web');
+    const logoPdf = document.getElementById('logo-pdf');
+
+    // --- ANTES DE GENERAR EL PDF ---
+    // 1. Oculta el logo para la web
+    logoWeb.style.display = 'none';
+    
+    // 2. Muestra el logo para el PDF
+    logoPdf.style.display = 'block';
+
+    // --- GENERACIÓN DEL PDF ---
+    // 3. Aquí va tu código para generar el PDF (ej. con html2canvas y jsPDF)
+    //    Este es solo un ejemplo, reemplázalo con tu función real.
+    generarPDF().then(() => {
+        // --- DESPUÉS DE GENERAR EL PDF ---
+        // 4. Vuelve a mostrar el logo original y oculta el del PDF
+        logoWeb.style.display = 'block';
+        logoPdf.style.display = 'none';
+        console.log("El PDF se ha generado y la imagen original ha sido restaurada.");
+    });
+});
+
+// Ejemplo de una función que genera el PDF
+async function generarPDF() {
+    const elemento = document.getElementById('contenido-a-pdf');
+    // Tu lógica de conversión a PDF aquí...
+    // Por ejemplo:
+    // await html2canvas(elemento).then(canvas => {
+    //   const imgData = canvas.toDataURL('image/png');
+    //   const pdf = new jsPDF();
+    //   pdf.addImage(imgData, 'PNG', 0, 0);
+    //   pdf.save("ficha-tecnica.pdf");
+    // });
+    console.log("Generando PDF...");
+    // Simulamos que la generación tarda un segundo
+    return new Promise(resolve => setTimeout(resolve, 1000));
+}
+
 
 // Agregá este código al final de tu archivo scripts.js
 
