@@ -16,8 +16,15 @@ body {
     font-size: 13px;
     line-height: 1.6;
     background-color: #f0f2f5; /* Un fondo ligeramente gris para distinguir el contenedor */
-    background: #0008 url(https://wallpapercave.com/wp/wp5245989.jpg) no-repeat center center fixed;
+    background: #0008 url(https://images.pexels.com/photos/9245734/pexels-photo-9245734.jpeg) no-repeat center center fixed;
     padding: 2rem;
+}
+
+img{
+    width: 70%;
+    height: 5%;
+    display: block;
+    margin: 0 auto 20px auto;
 }
 
 h1 {
@@ -276,6 +283,38 @@ textarea{
     text-align:center;
     font-size: 23px;
     margin:auto;
+}
+
+.buttonPDF {
+  /* 1. Activa Flexbox para controlar los elementos internos */
+  display: flex;
+
+  /* 2. Apila los elementos en una columna vertical */
+  flex-direction: column;
+
+  /* 3. ¡La clave! Centra los elementos horizontalmente */
+  align-items: center;
+
+  /* 4. (Opcional) Crea un espacio vertical entre el botón y la nota */
+  gap: 15px;
+}
+
+/* Estilos para que el botón y la nota se vean bien (opcional) */
+#btnGenerarPdf {
+    margin: 20px 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  border-radius:5px;
+}
+
+.nota {
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  /* El display: inline-block ya no es necesario aquí gracias a Flexbox */
 }
 
 /* Únicamente para crear el PDF */
