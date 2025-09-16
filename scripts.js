@@ -252,14 +252,30 @@ async function generarPDF() {
 
 // Agregá este código al final de tu archivo scripts.js
 
-// ===== ARCHIVO scripts.js (VERSIÓN FINAL CON window.print) =====
-
+// ===== ARCHIVO scripts.js (VERSIÓN FINAL CON window.print y nombre dinámico) =====
 document.addEventListener('DOMContentLoaded', () => {
     const botonPdf = document.getElementById('btnGenerarPdf');
+    // 1. Obtenemos el input del nombre del evento por su nuevo ID
+    const nombreEventoInput = document.getElementById('nombreEventoInput');
 
-    if (botonPdf) {
+    if (botonPdf && nombreEventoInput) {
         botonPdf.addEventListener('click', () => {
+            // 2. Leemos el valor del input. Si está vacío, usamos un nombre por defecto.
+            const nombreDelEvento = nombreEventoInput.value.trim() || "ficha-evento";
+
+            // 3. Guardamos el título original de la página
+            const tituloOriginal = document.title;
+
+            // 4. Cambiamos el título de la página al nombre del evento
+            document.title = nombreDelEvento;
+
+            // 5. Llamamos a la impresión (el navegador usará el nuevo título como nombre de archivo)
             window.print();
+
+            // 6. Restauramos el título original para que la pestaña no quede con el nombre del evento
+            setTimeout(() => {
+                document.title = tituloOriginal;
+            }, 500);
         });
     }
 });
