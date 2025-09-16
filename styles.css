@@ -132,7 +132,7 @@ input[type="checkbox"] {
 
 /* La columna más ancha para el nombre */
 .col-nombre-tarifa {
-    width: 25%; 
+    width: 30%; 
 }
 
 /* Columnas para valores numéricos, más pequeñas */
@@ -150,7 +150,7 @@ input[type="checkbox"] {
 .col-valor-tarifa,
 .col-resultado-web,
 .col-resultado-pos {
-    width: 15%;
+    width: 10%;
 }
 
 /* Ajusta estos porcentajes según tu necesidad. 
