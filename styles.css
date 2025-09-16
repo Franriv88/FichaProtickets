@@ -346,7 +346,7 @@ textarea{
 
 /* Estilos para que el botón y la nota se vean bien (opcional) */
 #btnGenerarPdf {
-    margin: 20px 0;
+  margin: 20px 0;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -360,6 +360,13 @@ textarea{
   padding: 10px 15px;
   border-radius: 8px;
   /* El display: inline-block ya no es necesario aquí gracias a Flexbox */
+}
+
+#logo-web{
+    width: 35%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
 }
 
 /* Únicamente para crear el PDF */
