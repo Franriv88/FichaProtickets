@@ -369,6 +369,10 @@ textarea{
     margin: 0 auto 20px auto;
 }
 
+h1{
+    font-size: 70px;
+}
+
 /* Únicamente para crear el PDF */
 /* ======================================================= */
 /* ===         CSS FINAL (VERSIÓN SIMPLIFICADA)        === */
