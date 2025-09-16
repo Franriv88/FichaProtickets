@@ -26,7 +26,12 @@
         <form id="form">
           <fieldset>
             <legend>PRODUCTORA</legend>
-            <input type="text" placeholder="Nombre de la productora"    />
+            <input list="producer" id="productoraInput" name="productoraInput" placeholder="Seleccione o escriba la productora..." />
+            <datalist id="producer" >
+              <option value="Green&Five"></option>
+              <option value="Five"></option>
+              <option value="Protickets"></option>
+            </datalist>
             <input type="number" placeholder="CUIT" />
             <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
             <!-- <input type="text" placeholder="Razón Social" /> -->
@@ -101,10 +106,10 @@
               <input type="time" id="eventTime" name="eventTime"    />
             </div>
             <div>
-              <label for="">Hora de fin</label>
-              <input type="time" id="eventTime" name="eventTime"    />
               <label for="">Apertura de puertas</label>
               <input type="time" id="doorsTime" name="doorsTime"    />
+              <label for="">Hora de fin</label>
+              <input type="time" id="eventTime" name="eventTime"    />
             </div>
           </fieldset>
 
