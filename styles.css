@@ -375,6 +375,20 @@ h1{
             -webkit-text-stroke: 0.5px #000; /* Borde de color violeta */
 }
 
+.linksMaterial {
+    grid-column: 1 / -1; /* Hace que el div ocupe las 2 columnas del fieldset */
+    width: 100%;
+    gap: 1rem;
+}
+
+.linksMaterial input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
 /* Únicamente para crear el PDF */
 /* ======================================================= */
 /* ===         CSS FINAL (VERSIÓN SIMPLIFICADA)        === */
