@@ -99,20 +99,30 @@
                 <option value="Mixto"></option>
               </datalist>
             </div>
-            <div>
+            <!-- <div>
               <label for="">Fecha del evento</label>
               <input type="date" id="eventDate" name="eventDate"    />
               <label for="">Hora de inicio</label>
               <input type="time" id="eventTime" name="eventTime"    />
+            </div> -->
+            <!-- MODIFICACIÓN DE INPUT PARA FORMATO DE FECHA CON MES EN LETRAS Y NO NÚMERO-->
+            <div>
+              <label for="eventDate">Fecha del evento</label>
+              <div class="custom-date-input" id="dateDisplay">
+                Seleccione una fecha
+              </div>
+              <input type="date" id="eventDate" name="eventDate" class="hidden-date-input" />
+            <!-- HASTA ACÁ LLEGA LA MODIFICACIÓN -->
+              <label for="eventTime">Hora de inicio</label>
+              <input type="time" id="eventTime" name="eventTime" value="00:00" />
             </div>
             <div>
-              <label for="">Apertura de puertas</label>
-              <input type="time" id="doorsTime" name="doorsTime"    />
-              <label for="">Hora de fin</label>
-              <input type="time" id="eventTime" name="eventTime"    />
+              <label for="doorsTime">Apertura de puertas</label>
+              <input type="time" id="doorsTime" name="doorsTime" value="00:00" />
+              <label for="eventEndTime">Hora de fin</label>
+              <input type="time" id="eventEndTime" name="eventEndTime" value="00:00" />
             </div>
           </fieldset>
-
           <fieldset class="delivery-format">
             <legend>FORMATO DE ENTREGA</legend>
             <div>

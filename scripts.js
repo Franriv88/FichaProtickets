@@ -1,279 +1,179 @@
-// =================================================================
-// 1. MAPA DE DATOS Y ELEMENTOS DEL HTML
-// =================================================================
+/* ======================================================= */
+/* 1. FUNCIONES GLOBALES (Llamadas desde onclick en HTML) */
+/* ======================================================= */
 
-const venueAddresses = {
-    "Mood Live": "Ministro Gonzalez 40",
-    "RucaChe": "Antártida Argentina 3901",
-    "Espacio Duam": "San Martin 5901"
-};
-
-const venueInput = document.getElementById('venueName');
-const addressInput = document.getElementById('addressLocation');
-const sectorContainer = document.getElementById('sectorContainer');
-const sectorInput = document.getElementById('sectorInput'); // ✅ Obtenemos el input del sector
-
-
-// =================================================================
-// 2. LÓGICA PRINCIPAL DEL INPUT "VENUE"
-// =================================================================
-
-venueInput.addEventListener('input', function() {
-    const selectedVenue = this.value;
-
-    // Autocompletar dirección
-    const correspondingAddress = venueAddresses[selectedVenue];
-    addressInput.value = correspondingAddress || '';
-
-    // Mostrar/ocultar el campo de "Sector"
-    if (selectedVenue === 'Mood Live') {
-        sectorContainer.classList.remove('hidden');
-    } else {
-        sectorContainer.classList.add('hidden');
-    }
-});
-
-
-// =================================================================
-// 3. FUNCIÓN REUTILIZABLE PARA MOSTRAR OPCIONES AL HACER CLIC
-// =================================================================
-
-function reopenDatalist(event) {
-    const input = event.target; // Se refiere al input que recibió el clic
-    const currentValue = input.value;
-    
-    input.value = '';
-    
-    setTimeout(() => {
-        input.value = currentValue;
-        input.select();
-    }, 0);
+function agregarFila() {
+    const tbody = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+    const nuevaFila = tbody.insertRow();
+    nuevaFila.innerHTML = `
+        <td><input type="text" name="dato1[]"></td>
+        <td class="valores"><input type="text" name="dato2[]"></td>
+        <td><input type="text" name="dato3[]"></td>
+        <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
+        <td><button class="delete-btn" type="button" onclick="eliminarFila(this)">X</button></td>
+    `;
 }
 
-function selectTextOnFocus(event) {
-    event.target.select();
+function eliminarFila(boton) {
+    boton.closest('tr').remove();
 }
 
-// ✅ Aplicamos la misma función a AMBOS inputs
-venueInput.addEventListener('click', reopenDatalist);
-sectorInput.addEventListener('click', reopenDatalist); // ✨ AQUÍ LA MAGIA
-
-venueInput.addEventListener('focus', selectTextOnFocus);
-sectorInput.addEventListener('focus', selectTextOnFocus);
-
-
-
-
-
-/**
- * ESTA ES LA NUEVA FUNCIÓN para el botón de 3 estados.
- * Rota el estado y el estilo del botón que se le pase como argumento.
- */
 function ciclarOpcionMesa(boton) {
     const estadoActual = boton.textContent;
-    
-    // Limpiamos las clases de estilo anteriores
     boton.classList.remove('no', 'compartida', 'individual');
 
-    // Determinamos el siguiente estado
     if (estadoActual === 'No') {
         boton.textContent = 'Compartida';
         boton.classList.add('compartida');
     } else if (estadoActual === 'Compartida') {
         boton.textContent = 'Individual';
         boton.classList.add('individual');
-    } else { // Si es 'Individual'
+    } else {
         boton.textContent = 'No';
         boton.classList.add('no');
     }
 }
 
-/**
- * TU FUNCIÓN `agregarFila`.
- * Ahora crea un botón que llama a la nueva función `ciclarOpcionMesa`.
- */
-function agregarFila() {
-    var tbody = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
-    var nuevaFila = tbody.insertRow();
-
-    var celda1 = nuevaFila.insertCell();
-    var celda2 = nuevaFila.insertCell();
-    var celda3 = nuevaFila.insertCell();
-    var celda4 = nuevaFila.insertCell(); // Celda con el botón de 3 estados
-    var celda5 = nuevaFila.insertCell(); // Celda con el botón de eliminar
-
-    celda1.innerHTML = '<input type="text" name="dato1[]">';
-    celda2.innerHTML = '<input type="text" name="dato2[]">';
-    celda3.innerHTML = '<input type="text" name="dato3[]">';
-    
-    // AQUÍ ESTÁ EL CAMBIO PRINCIPAL:
-    // El botón empieza en "No" y llama a la nueva función.
-    // Le añadimos la clase inicial 'no' para que tenga el estilo correcto.
-    celda4.innerHTML = '<button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button>';
-    
-    celda5.innerHTML = '<button class="delete-btn" type="button" onclick="eliminarFila(this)">X</button>';
+function agregarFila2() {
+    const miTablaBody = document.getElementById('miTablaBody');
+    const nuevaFila = miTablaBody.insertRow();
+    nuevaFila.innerHTML = `
+        <td class="col-nombre-tarifa"><input type="text" name="nombreTarifa[]" /></td>
+        <td class="col-tickets-compra"><input type="number" name="ticketsCompra[]" /></td>
+        <td class="col-valor-tarifa"><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0" /></td>
+        <td class="col-porcentaje-web"><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
+        <td class="col-resultado-web"><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
+        <td class="col-porcentaje-pos"><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"></td>
+        <td class="col-resultado-pos"><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
+        <td class="col-tickets-fase"><input type="number" name="ticketsFase[]" /></td>
+        <td><button class="delete-btn" onclick="eliminarFila2(this)">X</button></td>
+    `;
 }
 
-/**
- * Tu función `eliminarFila`.
- */
-function eliminarFila(boton) {
-    var fila = boton.parentNode.parentNode;
-    fila.parentNode.removeChild(fila);
+function eliminarFila2(boton) {
+    boton.closest('tr').remove();
 }
 
-
-// Archivo: calculos.js
-
-// --- NUEVA FUNCIÓN DE REDONDEO ESPECÍFICO ---
-/**
- * Redondea un número según las reglas de negocio para la boletería.
- * - Si la centena es 500 o más, redondea al siguiente millar.
- * - Si la centena es 499 o menos, redondea al millar actual.
- * @param {number} numero El número a redondear.
- * @returns {number} El número redondeado.
- */
 function redondearBoleteria(numero) {
-    // Esta fórmula logra el redondeo deseado de forma matemática:
-    // 1. Divide el número por 1000 (ej: 3742 -> 3.742)
-    // 2. Lo redondea al entero más cercano (ej: 3.742 -> 4)
-    // 3. Lo multiplica de nuevo por 1000 (ej: 4 -> 4000)
     return Math.round(numero / 1000) * 1000;
 }
 
-
-// --- LÓGICA DE CÁLCULO (MODIFICADA) ---
-
 function calcularValores(fila) {
-    // 1. Encontrar los inputs dentro de la fila (sin cambios)
     const valorTarifaInput = fila.querySelector('.valor-tarifa');
     const porcentajeWebInput = fila.querySelector('.porcentaje-web');
     const resultadoWebInput = fila.querySelector('.resultado-web');
     const porcentajeBoleteriaInput = fila.querySelector('.porcentaje-boleteria');
     const resultadoBoleteriaInput = fila.querySelector('.resultado-boleteria');
 
-    // 2. Obtener los valores (sin cambios)
     const valorTarifa = parseFloat(valorTarifaInput.value) || 0;
     const porcentajeWeb = parseFloat(porcentajeWebInput.value) || 0;
     const porcentajeBoleteria = parseFloat(porcentajeBoleteriaInput.value) || 0;
 
-    // 3. Realizar los cálculos
-    // El cálculo para la Web sigue igual
     const resultadoWeb = (valorTarifa * porcentajeWeb) / 100;
-    
-    // El cálculo para la Boletería ahora usa la nueva función de redondeo
     const resultadoBoleteriaCrudo = (valorTarifa * porcentajeBoleteria) / 100;
     const resultadoBoleteriaRedondeado = redondearBoleteria(resultadoBoleteriaCrudo);
 
-    // 4. Mostrar los resultados
-    // El resultado Web se muestra con 2 decimales, como antes.
     resultadoWebInput.value = resultadoWeb.toFixed(0);
-    
-    // El resultado Boletería se muestra ya redondeado.
     resultadoBoleteriaInput.value = resultadoBoleteriaRedondeado;
 }
 
-// --- MANEJO DE LA TABLA (SIN CAMBIOS) ---
 
-const miTablaBody = document.getElementById('miTablaBody');
+/* ==================================================================== */
+/* 2. CÓDIGO DE INICIALIZACIÓN (Se ejecuta cuando el HTML está listo)   */
+/* ==================================================================== */
 
-if (miTablaBody) {
-    miTablaBody.addEventListener('input', function(event) {
-        if (event.target.classList.contains('valor-tarifa') || 
-            event.target.classList.contains('porcentaje-web') || 
-            event.target.classList.contains('porcentaje-boleteria')) 
-        {
-            const filaActual = event.target.closest('tr');
-            calcularValores(filaActual);
-        }
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-function agregarFila2() {
-    const nuevaFila = miTablaBody.insertRow();
-    nuevaFila.innerHTML = `
-        <td><input type="text" name="nombreTarifa[]" /></td>
-        <td><input type="number" name="ticketsCompra[]" /></td>
-        <td><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0"/></td>
-        <td><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0"/></td>
-        <td><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
-        <td><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"/></td>
-        <td><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
-        <td><input type="number" name="ticketsFase[]" /></td>
-        <td><button class="delete-btn" onclick="eliminarFila2(this)">X</button></td>`;
-}
-
-function eliminarFila2(boton) {
-    const fila = boton.closest('tr');
-    fila.remove();
-}
-
-// Asigna el evento al botón que genera el PDF
-document.getElementById('btnGenerarPdf').addEventListener('click', function() {
-    // Referencias a las dos imágenes
+    // --- Selectores de elementos del DOM ---
+    const venueInput = document.getElementById('venueName');
+    const addressInput = document.getElementById('addressLocation');
+    const sectorContainer = document.getElementById('sectorContainer');
+    const sectorInput = document.getElementById('sectorInput');
+    const miTablaBody = document.getElementById('miTablaBody');
+    const botonPdf = document.getElementById('btnGenerarPdf');
+    const nombreEventoInput = document.getElementById('nombreEventoInput');
+    const dateInput = document.getElementById('eventDate');
+    const dateDisplay = document.getElementById('dateDisplay');
     const logoWeb = document.getElementById('logo-web');
     const logoPdf = document.getElementById('logo-pdf');
 
-    // --- ANTES DE GENERAR EL PDF ---
-    // 1. Oculta el logo para la web
-    logoWeb.style.display = 'none';
+    // --- Lógica del Venue y Dirección ---
+    if (venueInput) {
+        venueInput.addEventListener('input', function() {
+            const venueAddresses = {
+                "Mood Live": "Ministro Gonzalez 40",
+                "RucaChe": "Antártida Argentina 3901",
+                "Espacio Duam": "San Martin 5901"
+            };
+            addressInput.value = venueAddresses[this.value] || '';
+            sectorContainer.classList.toggle('hidden', this.value !== 'Mood Live');
+        });
+    }
+
+    // --- Lógica del input de Fecha Personalizado ---
+    if (dateDisplay && dateInput) {
+        dateDisplay.addEventListener('click', () => {
+            dateInput.showPicker();
+        });
+
+        dateInput.addEventListener('change', (event) => {
+            const dateValue = event.target.value;
+            if (!dateValue) return;
+
+            const date = new Date(dateValue + 'T00:00:00');
+            const formatter = new Intl.DateTimeFormat('es-ES', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            dateDisplay.textContent = formatter.format(date);
+            dateDisplay.style.color = '#333';
+        });
+    }
     
-    // 2. Muestra el logo para el PDF
-    logoPdf.style.display = 'block';
-
-    // --- GENERACIÓN DEL PDF ---
-    // 3. Aquí va tu código para generar el PDF (ej. con html2canvas y jsPDF)
-    //    Este es solo un ejemplo, reemplázalo con tu función real.
-    generarPDF().then(() => {
-        // --- DESPUÉS DE GENERAR EL PDF ---
-        // 4. Vuelve a mostrar el logo original y oculta el del PDF
-        logoWeb.style.display = 'block';
-        logoPdf.style.display = 'none';
-        console.log("El PDF se ha generado y la imagen original ha sido restaurada.");
-    });
-});
-
-// Ejemplo de una función que genera el PDF
-async function generarPDF() {
-    const elemento = document.getElementById('contenido-a-pdf');
-    // Tu lógica de conversión a PDF aquí...
-    // Por ejemplo:
-    // await html2canvas(elemento).then(canvas => {
-    //   const imgData = canvas.toDataURL('image/png');
-    //   const pdf = new jsPDF();
-    //   pdf.addImage(imgData, 'PNG', 0, 0);
-    //   pdf.save("ficha-tecnica.pdf");
-    // });
-    console.log("Generando PDF...");
-    // Simulamos que la generación tarda un segundo
-    return new Promise(resolve => setTimeout(resolve, 1000));
-}
+    // --- Lógica para reabrir Datalist ---
+    function reopenDatalist(event) {
+        const input = event.target;
+        const currentValue = input.value;
+        input.value = '';
+        setTimeout(() => { input.value = currentValue; input.select(); }, 0);
+    }
+    if(venueInput) venueInput.addEventListener('click', reopenDatalist);
+    if(sectorInput) sectorInput.addEventListener('click', reopenDatalist);
 
 
-// Agregá este código al final de tu archivo scripts.js
+    // --- Lógica de la tabla de Tarifas ---
+    if (miTablaBody) {
+        miTablaBody.addEventListener('input', function(event) {
+            if (event.target.matches('.valor-tarifa, .porcentaje-web, .porcentaje-boleteria')) {
+                const filaActual = event.target.closest('tr');
+                calcularValores(filaActual);
+            }
+        });
+    }
 
-// ===== ARCHIVO scripts.js (VERSIÓN FINAL CON window.print y nombre dinámico) =====
-document.addEventListener('DOMContentLoaded', () => {
-    const botonPdf = document.getElementById('btnGenerarPdf');
-    // 1. Obtenemos el input del nombre del evento por su nuevo ID
-    const nombreEventoInput = document.getElementById('nombreEventoInput');
-
+    // --- Lógica de Generación de PDF ---
     if (botonPdf && nombreEventoInput) {
         botonPdf.addEventListener('click', () => {
-            // 2. Leemos el valor del input. Si está vacío, usamos un nombre por defecto.
             const nombreDelEvento = nombreEventoInput.value.trim() || "ficha-evento";
-
-            // 3. Guardamos el título original de la página
             const tituloOriginal = document.title;
-
-            // 4. Cambiamos el título de la página al nombre del evento
+            
+            // Prepara para la impresión
+            if(logoWeb && logoPdf) {
+              logoWeb.style.display = 'none';
+              logoPdf.style.display = 'block';
+            }
             document.title = nombreDelEvento;
 
-            // 5. Llamamos a la impresión (el navegador usará el nuevo título como nombre de archivo)
+            // Imprime
             window.print();
-
-            // 6. Restauramos el título original para que la pestaña no quede con el nombre del evento
+            
+            // Restaura la vista normal después de un breve momento
             setTimeout(() => {
+                if(logoWeb && logoPdf) {
+                    logoWeb.style.display = 'block';
+                    logoPdf.style.display = 'none';
+                }
                 document.title = tituloOriginal;
             }, 500);
         });
