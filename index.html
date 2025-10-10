@@ -40,8 +40,31 @@
           
           <fieldset>
             <legend>EVENTO</legend>
-            <input type="text" placeholder="Nombre del evento" id="nombreEventoInput"/>
-            <input type="text" placeholder="Nombre del artista o banda"    />
+            <div>
+              <label for="">Nombre del evento</label>
+                <input type="text" placeholder="Nombre del evento" id="nombreEventoInput"/>
+            </div>
+            <div>
+              <label for="">Nombre del artista</label>
+                <input type="text" placeholder="Nombre del artista o banda"    />
+            </div>
+            <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
+            <datalist id="venue">
+              <option value="Mood Live"></option>
+              <option value="RucaChe"></option>
+              <option value="Espacio Duam"></option>
+              <option value="Cipolletti"></option>
+              <option value="Centro de Convenciones “Domuyo”"></option>
+              <option value="Paseo de la Costa"></option>
+            </datalist>
+            <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección" />
+            <datalist id="address">
+              <option value="Ministro Gonzalez 40 "></option>
+              <option value="Antártida Argentina 3901"></option>
+              <option value="San Martin 5901"></option>
+              <option value="Ruta 151, Calle Canal"></option>
+              <option value="Isla 132, Paseo de la Costa"></option>
+            </datalist>
             <div>
               <select name="genre" id="">
                 <option value="" disabled selected>Género</option>
@@ -73,23 +96,6 @@
                 <option value="otro">Otro</option>
               </select>
             </div>
-            <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
-            <datalist id="venue">
-              <option value="Mood Live"></option>
-              <option value="RucaChe"></option>
-              <option value="Espacio Duam"></option>
-              <option value="Cipolletti"></option>
-              <option value="Centro de Convenciones “Domuyo”"></option>
-              <option value="Paseo de la Costa"></option>
-            </datalist>
-            <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección" />
-            <datalist id="address">
-              <option value="Ministro Gonzalez 40 "></option>
-              <option value="Antártida Argentina 3901"></option>
-              <option value="San Martin 5901"></option>
-              <option value="Ruta 151, Calle Canal"></option>
-              <option value="Isla 132, Paseo de la Costa"></option>
-            </datalist>
             <div id="sectorContainer" class="hidden">
               <label for="sectorInput">Configuración de la sala</label>
               <input list="sectores" id="sectorInput" name="sector" placeholder="Seleccione o escriba el formato..." />
