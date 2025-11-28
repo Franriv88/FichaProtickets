@@ -85,6 +85,8 @@ function calcularValores(fila) {
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Selectores de elementos del DOM ---
+    const producerInput = document.getElementById('productoraInput');
+    const cuitInput = document.getElementById('productoraCuit');
     const venueInput = document.getElementById('venueName');
     const addressInput = document.getElementById('addressLocation');
     const sectorContainer = document.getElementById('sectorContainer');
@@ -109,7 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
             sectorContainer.classList.toggle('hidden', this.value !== 'Mood Live');
         });
     }
-
+     // --- Lógica del Productor y CUIT ---
+    if(producerInput){
+        producerInput.addEventListener('input', function() {
+            const cuitNumber = {
+                "Green&Five S.A.": "33-71649874-9",
+                "FIVE PRO EVENTS S.A.": "30-71536330-1"
+            };
+            cuitInput.value = cuitNumber[this.value] || '';
+            sectorContainer.classList.toggle('hidden', this.value !== 'Green&Five S.A.')
+        });
+    }
     // --- Lógica del input de Fecha Personalizado ---
     if (dateDisplay && dateInput) {
         dateDisplay.addEventListener('click', () => {

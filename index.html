@@ -28,11 +28,15 @@
             <legend>PRODUCTORA</legend>
             <input list="producer" id="productoraInput" name="productoraInput" placeholder="Seleccione o escriba la productora..." />
             <datalist id="producer" >
-              <option value="GREEN & FIVE"></option>
-              <option value="FIVE"></option>
-              <option value="PROTICKETS"></option>
+              <option value="Green&Five S.A." id="Green&Five"></option>
+              <option value="FIVE PRO EVENTS S.A." id="Five"></option>
             </datalist>
-            <input type="number" placeholder="CUIT" />
+            <input list="cuit" id="productoraCuit" name="prductoraCuit" placeholder="CUIT" />
+              <datalist id="cuit">
+                <option value="33-71649874-9"></option>
+                <option value="30-71536330-1"></option>
+              </datalist>
+
             <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
             <!-- <input type="text" placeholder="Razón Social" /> -->
             <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
@@ -46,7 +50,7 @@
             </div>
             <div>
               <label for="">Nombre del artista</label>
-                <input type="text" placeholder="Nombre del artista o banda"    />
+                <input type="text" placeholder="Nombre del artista o banda"/>
             </div>
             <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
             <datalist id="venue">
