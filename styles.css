@@ -73,14 +73,12 @@ legend {
     color: var(--primary-color);
 }
 
-/* Todos los inputs ahora comparten el mismo estilo base */
 input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], input[list], select {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
-    height: 100%; /* Asegura consistencia */
 }
 
 label {
@@ -162,34 +160,18 @@ textarea {
     font-family: inherit;
 }
 
-/* === SECCIÓN MATERIALES DE MARKETING CORREGIDA === */
 .marketing-materials {
     grid-column: 1 / -1;
     display: flex;
     width: 100%;
     gap: 1rem;
-    align-items: center; /* Centra verticalmente el aviso del peso con las listas */
 }
 
-.item { padding: 1em; }
+.item { flex: 1; padding: 1em; }
 .negritas { font-weight: bold; color: var(--primary-color); }
-
-#peso { 
-    font-size: 23px; 
-    margin: auto; 
-    text-align: center; 
-    flex: 2; 
-}
-#dimension { 
-    text-align: right; 
-    flex: 1; 
-    line-height: 1.8;
-}
-#caracteristicas { 
-    text-align: left; 
-    flex: 2; 
-    line-height: 1.8;
-}
+#peso { font-size: 23px; margin: auto; text-align: center; flex: 2; }
+#dimension { text-align: right; flex: 1; }
+#caracteristicas { text-align: left; flex: 2; }
 
 .buttonPDF {
     display: flex;
@@ -227,57 +209,10 @@ textarea {
 
 .hidden-date-input { display: none; }
 
-/* === ESTILOS PARA COPIADO === */
-.input-group {
-    display: flex;
-    align-items: stretch; /* CLAVE: Estira el botón para igualar la altura del input */
-    gap: 8px;
-    width: 100%;
-}
-
-.input-group input, .input-group select, .input-group textarea {
-    flex: 1;
-}
-
-.input-group-above {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100%;
-    gap: 3px;
-}
-
-.copy-btn-img {
-    background: none;
-    border: none;
-    border-radius: 4px;
-    padding: 4px;
-    cursor: pointer;
-    width: 32px; /* Un poco más ancho para centrar bien el ícono */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s;
-}
-
-.copy-btn-img:hover { background-color: #f0f0f0; }
-
-.copy-btn-img img {
-    width: 18px;
-    height: 18px;
-    margin: 0 !important;
-    display: inline-block !important;
-}
-
-/* Espacio compensatorio para alinear inputs en Tarifas */
-.mt-copy-space {
-    margin-top: 31px !important;
-}
-
 @media print {
     @page { size: A3 landscape; }
     body * { visibility: hidden; }
     #contenido-a-pdf, #contenido-a-pdf * { visibility: visible; }
     #contenido-a-pdf { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
-    .copy-btn-img, #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
+    #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
 }

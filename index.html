@@ -6,7 +6,13 @@
     <link rel="icon" href="/icon/Protickets icon NARANJA 64x64.png" />
     <link rel="stylesheet" href="styles.css" />
     <title>PROTICKETS</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
   </head>
   <body>
     <div id="contenido-a-pdf">
@@ -20,48 +26,27 @@
         <form id="form">
           <fieldset>
             <legend>PRODUCTORA</legend>
-            <div class="input-group">
-                <input type="text" list="producer" id="productoraInput" placeholder="Seleccione o escriba la productora..." />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
+            <input list="producer" id="productoraInput" name="productoraInput" placeholder="Seleccione o escriba la productora..." />
             <datalist id="producer">
-              <option value="Green&Five S.A."></option>
-              <option value="FIVE PRO EVENTS S.A."></option>
+              <option value="Green&Five S.A." id="Green&Five"></option>
+              <option value="FIVE PRO EVENTS S.A." id="Five"></option>
             </datalist>
-            <div class="input-group">
-                <input type="text" list="cuit" id="productoraCuit" placeholder="CUIT" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
-            <div class="input-group">
-                <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
+            <input type="text" id="productoraCuit" name="productoraCuit" placeholder="CUIT" />
+            <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
+            <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
           </fieldset>
           
           <fieldset>
             <legend>EVENTO</legend>
             <div>
               <label>Nombre del evento</label>
-              <div class="input-group">
-                <input type="text" placeholder="Nombre del evento" id="nombreEventoInput"/>
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-              </div>
+              <input type="text" placeholder="Nombre del evento" id="nombreEventoInput"/>
             </div>
             <div>
               <label>Nombre del artista</label>
-              <div class="input-group">
-                <input type="text" placeholder="Nombre del artista o banda"/>
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-              </div>
+              <input type="text" placeholder="Nombre del artista o banda"/>
             </div>
-            <div class="input-group">
-                <input type="text" list="venue" id="venueName" placeholder="Seleccione o escriba el venue..." />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
+            <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
             <datalist id="venue">
               <option value="Mood Live"></option>
               <option value="RucaChe"></option>
@@ -70,25 +55,40 @@
               <option value="Centro de Convenciones “Domuyo”"></option>
               <option value="Paseo de la Costa"></option>
             </datalist>
-            <div class="input-group">
-                <input type="text" id="addressLocation" placeholder="Dirección" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
-            <div class="input-group">
+            <input type="text" id="addressLocation" name="addressLocation" placeholder="Dirección" />
+            <div>
               <select name="genre">
                 <option value="" disabled selected>Género</option>
-                <option value="rock">Rock</option>
+                <option value="alternativa_experimental">Alternativa/Experimental</option>
+                <option value="cachengue_reggaeton">Cachengue/Reggaeton</option>
+                <option value="clasica">Clásica</option>
+                <option value="cumbia">Cumbia</option>
+                <option value="danza_baile">Danza/Baile</option>
+                <option value="electrónica">Electrónica</option>
+                <option value="folk_country">Folk/Country</option>
+                <option value="folklore">Folklore</option>
+                <option value="humor">Humor</option>
+                <option value="indie">Indie</option>
+                <option value="jazz">Jazz</option>
+                <option value="funk">Funk</option>
+                <option value="soul">Soul</option>
+                <option value="merengue">Merengue</option>
                 <option value="pop">Pop</option>
+                <option value="punk_metal">Puntk/Metal</option>
+                <option value="reggae">Reggae</option>
+                <option value="rock">Rock</option>
+                <option value="salsa">Salsa</option>
+                <option value="samba">Samba</option>
+                <option value="r&b">R&B</option>
+                <option value="teatro">Teatro</option>
+                <option value="trap_rap">Trap/Rap</option>
+                <option value="urbano">Urbano</option>
                 <option value="otro">Otro</option>
               </select>
-              <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
             </div>
             <div id="sectorContainer" class="hidden">
-              <label>Configuración de la sala</label>
-              <div class="input-group">
-                <input type="text" list="sectores" id="sectorInput" placeholder="Seleccione o escriba el formato..." />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-              </div>
+              <label for="sectorInput">Configuración de la sala</label>
+              <input list="sectores" id="sectorInput" name="sector" placeholder="Seleccione o escriba el formato..." />
               <datalist id="sectores">
                 <option value="General"></option>
                 <option value="Café Concert"></option>
@@ -99,24 +99,15 @@
             <div>
               <label>Fecha del evento</label>
               <div class="custom-date-input" id="dateDisplay">Seleccione una fecha</div>
-              <input type="date" id="eventDate" class="hidden-date-input" />
+              <input type="date" id="eventDate" name="eventDate" class="hidden-date-input" />
               <label>Hora de inicio</label>
-              <div class="input-group">
-                <input type="time" id="eventTime" value="00:00" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-              </div>
+              <input type="time" id="eventTime" value="00:00" />
             </div>
             <div>
               <label>Apertura de puertas</label>
-              <div class="input-group">
-                <input type="time" id="doorsTime" value="00:00" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-              </div>
+              <input type="time" id="doorsTime" value="00:00" />
               <label>Hora de fin</label>
-              <div class="input-group">
-                <input type="time" id="eventEndTime" value="00:00" />
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-              </div>
+              <input type="time" id="eventEndTime" value="00:00" />
             </div>
           </fieldset>
 
@@ -139,12 +130,19 @@
             <legend>SECTORIZACIÓN</legend>
             <button type="button" onclick="agregarFila()">Agregar Fila</button>
             <table id="miTabla" class="table-wrapper">
-              <thead><tr><th>Nombre Sector</th><th>Capacidad</th><th>Acceso</th><th>¿Mesas?</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Nombre del Sector</th>
+                  <th>Capacidad</th>
+                  <th>Dirección de Acceso</th>
+                  <th>¿El sector tiene mesas?</th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
-                  <td><div class="input-group"><input type="text" name="dato1[]" /><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div></td>
-                  <td><div class="input-group"><input type="text" name="dato2[]" /><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div></td>
-                  <td><div class="input-group"><input type="text" name="dato3[]" /><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div></td>
+                  <td><input type="text" name="dato1[]" /></td>
+                  <td class="valores"><input type="text" name="dato2[]" /></td>
+                  <td><input type="text" name="dato3[]" /></td>
                   <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
                   <td><button class="delete-btn" onclick="eliminarFila(this)">X</button></td>
                 </tr>
@@ -156,17 +154,28 @@
             <legend>TARIFAS</legend>
             <button type="button" onclick="agregarFila2()">Agregar Fila</button>
             <table id="losPrecios" class="table-wrapper">
-                <thead><tr><th>Nombre de la Tarifa</th><th>Tickets compra</th><th>$ Valor Tarifa</th><th>% Web</th><th>$ Web</th><th>% POS</th><th>$ POS</th><th>Tickets fase</th></tr></thead>
+                <thead>
+                    <tr>
+                        <th>Nombre de la Tarifa</th>
+                        <th>Tickets por compra</th>
+                        <th>$ Valor de Tarifa</th>
+                        <th>% SC Web</th>
+                        <th>$ SC Web</th>
+                        <th>% SC POS</th>
+                        <th>$ SC POS</th>
+                        <th>Tickets por fase</th>
+                    </tr>
+                </thead>
                 <tbody id="miTablaBody">
                   <tr>
-                    <td><div class="input-group-above"><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button><input type="text" name="nombreTarifa[]" /></div></td>
-                    <td><div class="input-group-above"><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button><input type="number" name="ticketsCompra[]" /></div></td>
-                    <td><div class="input-group-above"><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button><input type="number" class="valor-tarifa" name="valorTarifa[]" min="0" /></div></td>
-                    <td><input type="number" class="porcentaje-web mt-copy-space" name="porcentajeWeb[]" placeholder="15" /></td>
-                    <td><div class="input-group-above"><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></div></td>
-                    <td><input type="number" class="porcentaje-boleteria mt-copy-space" name="porcentajeBoleteria[]" placeholder="12"></td>
-                    <td><input type="text" class="resultado-boleteria mt-copy-space" name="resultadoBoleteria[]" readonly /></td>
-                    <td><input type="number" class="mt-copy-space" name="ticketsFase[]" /></td>
+                    <td><input type="text" name="nombreTarifa[]" /></td>
+                    <td><input type="number" name="ticketsCompra[]" /></td>
+                    <td><input type="number" class="valor-tarifa" name="valorTarifa[]" /></td>
+                    <td><input type="number" class="porcentaje-web" placeholder="15" /></td>
+                    <td><input type="text" class="resultado-web" readonly /></td>
+                    <td><input type="number" class="porcentaje-boleteria" placeholder="12"></td>
+                    <td><input type="text" class="resultado-boleteria" readonly /></td>
+                    <td><input type="number" name="ticketsFase[]" /></td>
                     <td><button class="delete-btn" onclick="eliminarFila2(this)">X</button></td>
                   </tr>
                 </tbody>
@@ -176,14 +185,13 @@
           <fieldset>
             <legend>RECAUDACIÓN</legend>
             <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
-            <div class="input-group">
-                <select id="recaudacionSelect">
-                    <option value="">Grupo 1</option>
-                    <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
-                    <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
-                </select>
-                <button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button>
-            </div>
+            <select id="recaudacionSelect">
+                <option value="">Seleccione...</option>
+                <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
+                <option value="YSYA-FIVE_NQN">YSY A - FIVE NQN</option>
+                <option value="Five(NQN)-Grupo3">Five(NQN) - Grupo 3 (LALI)</option>
+                <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
+            </select>
           </fieldset>
 
           <fieldset>
@@ -191,20 +199,20 @@
             <div>
               <label>Políticas</label>
               <p>Política de menores:</p>
-              <div class="input-group"><textarea>APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div>
+              <textarea>APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea>
               <p>Personas con discapacidad:</p>
-              <div class="input-group"><textarea>El ingreso para personas con discapacidad es gratuito por ley municipal con acreditación previa en boletería ( original y copias presentan) hasta 48 hs antes del show o hasta agotar cupo! En formato Café Concert solo se toman 6 con acompañante o hasta 12 cupos ( 3 mesas), y de pie hasta 20 cupos.</textarea><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div>
+              <textarea>El ingreso para personas con discapacidad es gratuito por ley municipal con acreditación previa en boletería ( original y copias presentan) hasta 48 hs antes del show o hasta agotar cupo! En formato Café Concert solo se toman 6 con acompañante o hasta 12 cupos ( 3 mesas), y de pie hasta 20 cupos.</textarea>
               <p>Otros...</p>
-              <div class="input-group"><textarea></textarea><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div>
+              <textarea></textarea>
             </div>
             <div>
               <label>Soporte y Control de Acceso</label>
               <p>Reingreso (salir y volver a entrar):</p>
-              <div class="input-group"><textarea>No está permitido el reingreso al evento una vez abandonado el recinto.</textarea><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div>
+              <textarea>No está permitido el reingreso al evento una vez abandonado el recinto.</textarea>
               <p>Cambio de fechas:</p>
-              <div class="input-group"><textarea>No está permitido el cambio de fecha una vez adquiridas las entradas.</textarea><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div>
+              <textarea>No está permitido el cambio de fecha una vez adquiridas las entradas.</textarea>
               <p>Otros...</p>
-              <div class="input-group"><textarea></textarea><button type="button" class="copy-btn-img" onclick="copyValue(this)"><img src="icon/copy.png" alt="copy"></button></div>
+              <textarea></textarea>
             </div>
           </fieldset>
 
@@ -243,7 +251,12 @@
         </form>
       </div>
     </div>
-    <div class="buttonPDF"><button id="btnGenerarPdf">Generar PDF</button></div>
+
+    <div class="buttonPDF">
+        <button id="btnGenerarPdf">Generar PDF</button>
+        <p class="nota">💡Nota: Al generar el PDF, asegurate de seleccionar <strong>"Guardar como PDF"</strong>.</p>
+    </div>
+
     <script src="scripts.js"></script>
   </body>
 </html>
