@@ -1,36 +1,46 @@
 /* ======================================================= */
-/* 1. FUNCIONES GLOBALES (Llamadas desde onclick en HTML) */
+/* 1. FUNCIONES GLOBALES                                   */
 /* ======================================================= */
+
+function copyValue(boton) {
+    const contenedor = boton.parentElement;
+    const input = contenedor.querySelector('input, textarea, select');
+    if (input) {
+        navigator.clipboard.writeText(input.value).then(() => {
+            const originalText = boton.textContent;
+            boton.textContent = "Copied!";
+            boton.style.backgroundColor = "#4caf50";
+            setTimeout(() => {
+                boton.textContent = originalText;
+                boton.style.backgroundColor = "";
+            }, 1000);
+        });
+    }
+}
 
 function agregarFila() {
     const tbody = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
     const nuevaFila = tbody.insertRow();
     nuevaFila.innerHTML = `
-        <td><input type="text" name="dato1[]"></td>
-        <td class="valores"><input type="text" name="dato2[]"></td>
-        <td><input type="text" name="dato3[]"></td>
+        <td><div class="input-group"><input type="text" name="dato1[]"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
+        <td class="valores"><div class="input-group"><input type="text" name="dato2[]"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
+        <td><div class="input-group"><input type="text" name="dato3[]"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
         <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
         <td><button class="delete-btn" type="button" onclick="eliminarFila(this)">X</button></td>
     `;
 }
 
-function eliminarFila(boton) {
-    boton.closest('tr').remove();
-}
+function eliminarFila(boton) { boton.closest('tr').remove(); }
 
 function ciclarOpcionMesa(boton) {
     const estadoActual = boton.textContent;
     boton.classList.remove('no', 'compartida', 'individual');
-
     if (estadoActual === 'No') {
-        boton.textContent = 'Compartida';
-        boton.classList.add('compartida');
+        boton.textContent = 'Compartida'; boton.classList.add('compartida');
     } else if (estadoActual === 'Compartida') {
-        boton.textContent = 'Individual';
-        boton.classList.add('individual');
+        boton.textContent = 'Individual'; boton.classList.add('individual');
     } else {
-        boton.textContent = 'No';
-        boton.classList.add('no');
+        boton.textContent = 'No'; boton.classList.add('no');
     }
 }
 
@@ -38,11 +48,11 @@ function agregarFila2() {
     const miTablaBody = document.getElementById('miTablaBody');
     const nuevaFila = miTablaBody.insertRow();
     nuevaFila.innerHTML = `
-        <td class="col-nombre-tarifa"><input type="text" name="nombreTarifa[]" /></td>
-        <td class="col-tickets-compra"><input type="number" name="ticketsCompra[]" /></td>
-        <td class="col-valor-tarifa"><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0" /></td>
+        <td class="col-nombre-tarifa"><div class="input-group"><input type="text" name="nombreTarifa[]" /><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
+        <td class="col-tickets-compra"><div class="input-group-above"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button><input type="number" name="ticketsCompra[]" /></div></td>
+        <td class="col-valor-tarifa"><div class="input-group-above"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button><input type="number" class="valor-tarifa" name="valorTarifa[]" min="0" /></div></td>
         <td class="col-porcentaje-web"><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
-        <td class="col-resultado-web"><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
+        <td class="col-resultado-web"><div class="input-group-above"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></div></td>
         <td class="col-porcentaje-pos"><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"></td>
         <td class="col-resultado-pos"><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
         <td class="col-tickets-fase"><input type="number" name="ticketsFase[]" /></td>
@@ -50,143 +60,65 @@ function agregarFila2() {
     `;
 }
 
-function eliminarFila2(boton) {
-    boton.closest('tr').remove();
-}
+function eliminarFila2(boton) { boton.closest('tr').remove(); }
 
-function redondearBoleteria(numero) {
-    return Math.round(numero / 1000) * 1000;
-}
+function redondearBoleteria(numero) { return Math.round(numero / 1000) * 1000; }
 
 function calcularValores(fila) {
-    const valorTarifaInput = fila.querySelector('.valor-tarifa');
-    const porcentajeWebInput = fila.querySelector('.porcentaje-web');
-    const resultadoWebInput = fila.querySelector('.resultado-web');
-    const porcentajeBoleteriaInput = fila.querySelector('.porcentaje-boleteria');
-    const resultadoBoleteriaInput = fila.querySelector('.resultado-boleteria');
-
-    const valorTarifa = parseFloat(valorTarifaInput.value) || 0;
-    const porcentajeWeb = parseFloat(porcentajeWebInput.value) || 0;
-    const porcentajeBoleteria = parseFloat(porcentajeBoleteriaInput.value) || 0;
-
-    const resultadoWeb = (valorTarifa * porcentajeWeb) / 100;
-    const resultadoBoleteriaCrudo = (valorTarifa * porcentajeBoleteria) / 100;
-    const resultadoBoleteriaRedondeado = redondearBoleteria(resultadoBoleteriaCrudo);
-
-    resultadoWebInput.value = resultadoWeb.toFixed(0);
-    resultadoBoleteriaInput.value = resultadoBoleteriaRedondeado;
+    const v = parseFloat(fila.querySelector('.valor-tarifa').value) || 0;
+    const pW = parseFloat(fila.querySelector('.porcentaje-web').value) || 0;
+    const pB = parseFloat(fila.querySelector('.porcentaje-boleteria').value) || 0;
+    fila.querySelector('.resultado-web').value = ((v * pW) / 100).toFixed(0);
+    const resB = (v * pB) / 100;
+    fila.querySelector('.resultado-boleteria').value = redondearBoleteria(resB);
 }
 
-
 /* ==================================================================== */
-/* 2. CÓDIGO DE INICIALIZACIÓN (Se ejecuta cuando el HTML está listo)   */
+/* 2. CÓDIGO DE INICIALIZACIÓN                                          */
 /* ==================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- Selectores de elementos del DOM ---
-    const producerInput = document.getElementById('productoraInput');
-    const cuitInput = document.getElementById('productoraCuit');
     const venueInput = document.getElementById('venueName');
     const addressInput = document.getElementById('addressLocation');
     const sectorContainer = document.getElementById('sectorContainer');
-    const sectorInput = document.getElementById('sectorInput');
     const miTablaBody = document.getElementById('miTablaBody');
     const botonPdf = document.getElementById('btnGenerarPdf');
-    const nombreEventoInput = document.getElementById('nombreEventoInput');
     const dateInput = document.getElementById('eventDate');
     const dateDisplay = document.getElementById('dateDisplay');
-    const logoWeb = document.getElementById('logo-web');
-    const logoPdf = document.getElementById('logo-pdf');
 
-    // --- Lógica del Venue y Dirección ---
     if (venueInput) {
         venueInput.addEventListener('input', function() {
-            const venueAddresses = {
-                "Mood Live": "Ministro Gonzalez 40",
-                "RucaChe": "Antártida Argentina 3901",
-                "Espacio Duam": "San Martin 5901"
-            };
-            addressInput.value = venueAddresses[this.value] || '';
+            const vA = { "Mood Live": "Ministro Gonzalez 40", "RucaChe": "Antártida Argentina 3901", "Espacio Duam": "San Martin 5901" };
+            addressInput.value = vA[this.value] || '';
             sectorContainer.classList.toggle('hidden', this.value !== 'Mood Live');
         });
     }
-     // --- Lógica del Productor y CUIT ---
-    if(producerInput){
-        producerInput.addEventListener('input', function() {
-            const cuitNumber = {
-                "Green&Five S.A.": "33-71649874-9",
-                "FIVE PRO EVENTS S.A.": "30-71536330-1"
-            };
-            cuitInput.value = cuitNumber[this.value] || '';
-            sectorContainer.classList.toggle('hidden', this.value !== 'Green&Five S.A.')
-        });
-    }
-    // --- Lógica del input de Fecha Personalizado ---
+
     if (dateDisplay && dateInput) {
-        dateDisplay.addEventListener('click', () => {
-            dateInput.showPicker();
-        });
-
-        dateInput.addEventListener('change', (event) => {
-            const dateValue = event.target.value;
-            if (!dateValue) return;
-
-            const date = new Date(dateValue + 'T00:00:00');
-            const formatter = new Intl.DateTimeFormat('es-ES', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
-            dateDisplay.textContent = formatter.format(date);
-            dateDisplay.style.color = '#333';
+        dateDisplay.addEventListener('click', () => dateInput.showPicker());
+        dateInput.addEventListener('change', (e) => {
+            if (!e.target.value) return;
+            const d = new Date(e.target.value + 'T00:00:00');
+            dateDisplay.textContent = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }).format(d);
         });
     }
-    
-    // --- Lógica para reabrir Datalist ---
-    function reopenDatalist(event) {
-        const input = event.target;
-        const currentValue = input.value;
-        input.value = '';
-        setTimeout(() => { input.value = currentValue; input.select(); }, 0);
-    }
-    if(venueInput) venueInput.addEventListener('click', reopenDatalist);
-    if(sectorInput) sectorInput.addEventListener('click', reopenDatalist);
 
-
-    // --- Lógica de la tabla de Tarifas ---
     if (miTablaBody) {
-        miTablaBody.addEventListener('input', function(event) {
-            if (event.target.matches('.valor-tarifa, .porcentaje-web, .porcentaje-boleteria')) {
-                const filaActual = event.target.closest('tr');
-                calcularValores(filaActual);
+        miTablaBody.addEventListener('input', (e) => {
+            if (e.target.matches('.valor-tarifa, .porcentaje-web, .porcentaje-boleteria')) {
+                calcularValores(e.target.closest('tr'));
             }
         });
     }
 
-    // --- Lógica de Generación de PDF ---
-    if (botonPdf && nombreEventoInput) {
+    if (botonPdf) {
         botonPdf.addEventListener('click', () => {
-            const nombreDelEvento = nombreEventoInput.value.trim() || "ficha-evento";
-            const tituloOriginal = document.title;
-            
-            // Prepara para la impresión
-            if(logoWeb && logoPdf) {
-              logoWeb.style.display = 'none';
-              logoPdf.style.display = 'block';
-            }
-            document.title = nombreDelEvento;
-
-            // Imprime
+            const lW = document.getElementById('logo-web');
+            const lP = document.getElementById('logo-pdf');
+            if(lW && lP) { lW.style.display = 'none'; lP.style.display = 'block'; }
             window.print();
-            
-            // Restaura la vista normal después de un breve momento
             setTimeout(() => {
-                if(logoWeb && logoPdf) {
-                    logoWeb.style.display = 'block';
-                    logoPdf.style.display = 'none';
-                }
-                document.title = tituloOriginal;
+                if(lW && lP) { lW.style.display = 'block'; lP.style.display = 'none'; }
             }, 500);
         });
     }

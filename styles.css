@@ -11,17 +11,14 @@
     padding: 0;
 }
 
-
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     line-height: 1.6;
-    background-color: #f0f2f5; /* Un fondo ligeramente gris para distinguir el contenedor */
+    background-color: #f0f2f5; 
     background: #0008 url(https://images.pexels.com/photos/9245734/pexels-photo-9245734.jpeg) no-repeat center center fixed;
     padding: 2rem;
 }
-
-
 
 img{
     width: 70%;
@@ -36,10 +33,9 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
-/* --- Contenedor Principal con Scroll --- */
 .datasheet {
-    max-width: 1200px;  /* Ancho máximo para pantallas muy grandes */
-    min-width: 800px;   /* Ancho mínimo antes de que aparezca el scroll */
+    max-width: 1200px;
+    min-width: 800px;
     margin: 0 auto;
     background-color: #fff;
     padding: 2rem;
@@ -47,7 +43,6 @@ h1 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Estilos del Formulario (Diseño de Escritorio por defecto) --- */
 form {
     display: flex;
     flex-direction: column;
@@ -58,20 +53,14 @@ fieldset {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
-    /* Usamos Grid para un diseño de 2 columnas */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     align-items: center;
 }
 
-/* Hacemos que la leyenda y elementos clave ocupen todo el ancho */
-legend,
-.delivery-format h4,
-.table-wrapper,
-form button,
-fieldset > button { /* Para el botón de "Agregar Fila" */
-    grid-column: 1 / -1; /* Ocupa desde la primera a la última columna */
+legend, .delivery-format h4, .table-wrapper, form button, fieldset > button {
+    grid-column: 1 / -1;
 }
 
 legend {
@@ -81,13 +70,7 @@ legend {
     color: var(--primary-color);
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="date"],
-input[type="time"],
-input[list],
-select {
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], input[list], select {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
@@ -114,55 +97,25 @@ input[type="checkbox"] {
     height: 1.5em;
 }
 
-/* --- Estilos para la tabla y los inputs --- */
-
-/* Hacemos que la tabla ocupe todo el ancho disponible */
 #losPrecios {
     width: 100%;
-    border-collapse: collapse; /* Mejora la apariencia de los bordes */
+    border-collapse: collapse;
 }
 
-/* Hacemos que todos los inputs dentro de la tabla se expandan 
-   al 100% del ancho de la celda (<td>) que los contiene */
-#losPrecios input[type="text"],
-#losPrecios input[type="number"] {
+#losPrecios input {
     width: 100%;
-    box-sizing: border-box; /* Evita que el padding o borde añada ancho extra */
-    padding: 5px; /* Un poco de espacio interno para que se vea mejor */
+    box-sizing: border-box;
+    padding: 5px;
 }
 
-/* --- Definición de anchos específicos para cada columna --- */
+.col-nombre-tarifa { width: 30%; }
+.col-tickets-compra, .col-porcentaje-web, .col-porcentaje-pos { width: 7%; }
+.col-tickets-fase { width: 10%; }
+.col-valor-tarifa, .col-resultado-web, .col-resultado-pos { width: 10%; }
 
-/* La columna más ancha para el nombre */
-.col-nombre-tarifa {
-    width: 30%; 
-}
-
-/* Columnas para valores numéricos, más pequeñas */
-.col-tickets-compra,
-.col-porcentaje-web,
-.col-porcentaje-pos{
-    width: 7%;
-}
-
-.col-tickets-fase{
-    width: 10%;
-}
-
-/* Columnas para valores monetarios */
-.col-valor-tarifa,
-.col-resultado-web,
-.col-resultado-pos {
-    width: 10%;
-}
-
-/* Ajusta estos porcentajes según tu necesidad. 
-   La suma no tiene por qué ser 100% exacto, el navegador lo ajustará. */
-
-/* --- Estilos de la Tabla (Solo vista de escritorio) --- */
 .table-wrapper {
     width: 100%;
-    overflow-x: auto; /* Scroll solo para la tabla si es muy ancha */
+    overflow-x: auto;
 }
 
 table {
@@ -178,11 +131,8 @@ th, td {
     font-size: 14px;
 }
 
-th {
-    background-color: #f2f2f2;
-}
+th { background-color: #f2f2f2; }
 
-/* --- Botones --- */
 button {
     padding: 0.6rem 1rem;
     border: none;
@@ -191,247 +141,65 @@ button {
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    width: fit-content; /* El botón solo ocupa el espacio de su texto */
+    width: fit-content;
 }
 
-.delete-btn {
-    background-color: #dc3545;
-}
+.delete-btn { background-color: #dc3545; }
 
-
-
-.input-container {
-  position: relative;
-}
-
-.input-pesos {
-  padding-left: 20px; /* Espacio a la izquierda para el $ */
-}
-
-.input-container::before {
-  content: "$";
-  position: absolute;
-  left: 3px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-        /* Para el input range (col 2) */
-        .range-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .range-container input {
-            flex-grow: 1;
-        }
-        .range-container span {
-            font-weight: bold;
-            min-width: 20px;
-        }
-
-        /* Para los inputs de porcentaje (col 4 y 6) */
-        .percentage-container {
-            position: relative;
-        }
-        .percentage-container input {
-            padding-right: 20px; /* Espacio para el símbolo % */
-        }
-        .percentage-container::after {
-            content: "%";
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #555;
-        }
-
-        /* Para los inputs calculados (col 5 y 7) */
-        .calculated-field {
-            background-color: #e9e9e9;
-            font-weight: bold;
-        }
-
-        /* Botones */
-        .delete-btn, .add-btn {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .delete-btn {
-            background-color: #ff4d4d;
-            color: white;
-        }
-        .add-btn {
-            background-color: #4caf50;
-            color: white;
-        }
-
-textarea{
+textarea {
     width: 100%;
     height: 150px;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
-    resize: vertical; /* Permite redimensionar verticalmente */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    resize: vertical;
+    font-family: inherit;
 }
 
 .marketing-materials {
-    /* ¡ESTA ES LA LÍNEA CLAVE! */
-    grid-column: 1 / -1; /* Hace que el div ocupe las 2 columnas del fieldset */
-    
+    grid-column: 1 / -1;
     display: flex;
     width: 100%;
     gap: 1rem;
 }
 
-.item {
-    margin: 0;
-    padding: 1em;
-}
-
-.item:first-child {
-    flex: 2;
-    text-align: left;
-}
-
-.item:nth-child(2) {
-    flex: 1;
-    text-align: center;
-}
-
-.item:last-child {
-    flex: 2;
-    text-align: center;
-}
-
-.negritas {
-    font-weight: bold;
-    color: #f36f21; /* Usé un color de ejemplo */
-}
-
-.negritas{
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-#caracteristicas{
-    text-align:left;
-}
-
-#dimension{
-    text-align:right;
-}
-
-#peso{
-    text-align:center;
-    font-size: 23px;
-    margin:auto;
-}
+.item { flex: 1; padding: 1em; }
+.negritas { font-weight: bold; color: var(--primary-color); }
 
 .buttonPDF {
-  /* 1. Activa Flexbox para controlar los elementos internos */
-  display: flex;
-
-  /* 2. Apila los elementos en una columna vertical */
-  flex-direction: column;
-
-  /* 3. ¡La clave! Centra los elementos horizontalmente */
-  align-items: center;
-
-  /* 4. (Opcional) Crea un espacio vertical entre el botón y la nota */
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Estilos para que el botón y la nota se vean bien (opcional) */
 #btnGenerarPdf {
-  margin: 20px 0;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  color: #fff;
-  border-radius:5px;
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--primary-color);
 }
 
 .nota {
-  background-color: #fff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  /* El display: inline-block ya no es necesario aquí gracias a Flexbox */
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
 }
 
-#logo-web{
-    width: 35%;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-}
+#logo-web{ width: 35%; height: auto; }
 
 h1{
     font-size: 70px;
-    color: #f36f21; /* El relleno se hace invisible */
-            -webkit-text-stroke: 0.5px #000; /* Borde de color violeta */
+    color: #f36f21;
+    -webkit-text-stroke: 0.5px #000;
 }
 
 .linksMaterial {
-    grid-column: 1 / -1; /* Hace que el div ocupe las 2 columnas del fieldset */
+    grid-column: 1 / -1;
     width: 100%;
-    gap: 1rem;
 }
 
-.linksMaterial input[type="text"] {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-/* Únicamente para crear el PDF */
-/* ======================================================= */
-/* ===         CSS FINAL (VERSIÓN SIMPLIFICADA)        === */
-/* ======================================================= */
-/* ===== REGLAS DE IMPRESIÓN PARA EL PDF (AGREGAR AL FINAL DE styles.css) ===== */
-
-/* ===== REGLAS DE IMPRESIÓN (VERSIÓN FINAL CON ROTACIÓN) ===== */
-
-@media print {
-    @page {
-        /* Usamos la versión más explícita para máxima compatibilidad */
-        size: A3 landscape; 
-    }
-
-    body * {
-        visibility: hidden;
-    }
-
-    #contenido-a-pdf, #contenido-a-pdf * {
-        visibility: visible;
-    }
-
-    #contenido-a-pdf {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-    
-    #btnGenerarPdf {
-        display: none !important;
-    }
-}
-
-
-/* Estilos para el campo visible (el div) */
 .custom-date-input {
     border: 1px solid #ccc;
     padding: 0.8rem;
@@ -442,7 +210,42 @@ h1{
     width: 100%;
 }
 
-/* ESTA ES LA REGLA CLAVE PARA OCULTAR EL INPUT ORIGINAL */
-.hidden-date-input {
-    display: none;
+.hidden-date-input { display: none; }
+
+/* === ESTILOS PARA GRUPOS DE COPIADO === */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-group-above {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    gap: 3px;
+}
+
+.copy-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.copy-btn:hover { background-color: #d65a10; }
+
+@media print {
+    @page { size: A3 landscape; }
+    body * { visibility: hidden; }
+    #contenido-a-pdf, #contenido-a-pdf * { visibility: visible; }
+    #contenido-a-pdf { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
+    .copy-btn, #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
 }

@@ -18,40 +18,56 @@
     <div id="contenido-a-pdf">
       <div class="header">
         <img id="logo-web" src="img/Banner_1920x720_Protikctes-Naranja.png" alt="Logo Protickets con letras blancas" />
-    
         <img id="logo-pdf" src="/img/LOGOS A.png" alt="Logo Protickets con letras negras" style="display: none;"/>
+      </div>
     
       <h1>FICHA TÉCNICA</h1>
       <div class="datasheet">
         <form id="form">
           <fieldset>
             <legend>PRODUCTORA</legend>
-            <input list="producer" id="productoraInput" name="productoraInput" placeholder="Seleccione o escriba la productora..." />
+            <div class="input-group">
+                <input list="producer" id="productoraInput" name="productoraInput" placeholder="Seleccione o escriba la productora..." />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
             <datalist id="producer" >
               <option value="Green&Five S.A." id="Green&Five"></option>
               <option value="FIVE PRO EVENTS S.A." id="Five"></option>
             </datalist>
-            <input list="cuit" id="productoraCuit" name="prductoraCuit" placeholder="CUIT" />
-              <!-- <datalist id="cuit">
-                <option value="33-71649874-9"></option>
-                <option value="30-71536330-1"></option>
-              </datalist> -->
-            <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
-            <!-- <input type="text" placeholder="Razón Social" /> -->
-            <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
+            <div class="input-group">
+                <input list="cuit" id="productoraCuit" name="prductoraCuit" placeholder="CUIT" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
           </fieldset>
           
           <fieldset>
             <legend>EVENTO</legend>
             <div>
               <label for="">Nombre del evento</label>
+              <div class="input-group">
                 <input type="text" placeholder="Nombre del evento" id="nombreEventoInput"/>
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
             </div>
             <div>
               <label for="">Nombre del artista</label>
+              <div class="input-group">
                 <input type="text" placeholder="Nombre del artista o banda"/>
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
             </div>
-            <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
+            <div class="input-group">
+                <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
             <datalist id="venue">
               <option value="Mood Live"></option>
               <option value="RucaChe"></option>
@@ -60,48 +76,25 @@
               <option value="Centro de Convenciones “Domuyo”"></option>
               <option value="Paseo de la Costa"></option>
             </datalist>
-            <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección" />
-            <!-- <datalist id="address">
-              <option value="Ministro Gonzalez 40 "></option>
-              <option value="Antártida Argentina 3901"></option>
-              <option value="San Martin 5901"></option>
-              <option value="Ruta 151, Calle Canal"></option>
-              <option value="Isla 132, Paseo de la Costa"></option>
-            </datalist> -->
-            <div>
+            <div class="input-group">
+                <input list="address" id="addressLocation" name="addressLocation" placeholder="Dirección" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
+            <div class="input-group">
               <select name="genre" id="">
                 <option value="" disabled selected>Género</option>
-                <option value="alternativa_experimental">Alternativa/Experimental</option>
-                <option value="cachengue_reggaeton">Cachengue/Reggaeton</option>
-                <option value="clasica">Clásica</option>
-                <option value="cumbia">Cumbia</option>
-                <option value="danza_baile">Danza/Baile</option>
-                <option value="electrónica">Electrónica</option>
-                <option value="folk_country">Folk/Country</option>
-                <option value="folklore">Folklore</option>
-                <option value="humor">Humor</option>
-                <option value="indie">Indie</option>
-                <option value="jazz">Jazz</option>
-                <option value="funk">Funk</option>
-                <option value="soul">Soul</option>
-                <option value="gosspel">Gosspel</option>
-                <option value="merengue">Merengue</option>
-                <option value="pop">Pop</option>
-                <option value="punk_metal">Puntk/Metal</option>
-                <option value="reggae">Reggae</option>
                 <option value="rock">Rock</option>
-                <option value="salsa">Salsa</option>
-                <option value="samba">Samba</option>
-                <option value="r&b">R&B</option>
-                <option value="teatro">Teatro</option>
-                <option value="trap_rap">Trap/Rap</option>
-                <option value="urbano">Urbano</option>
+                <option value="pop">Pop</option>
                 <option value="otro">Otro</option>
               </select>
+              <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
             </div>
             <div id="sectorContainer" class="hidden">
               <label for="sectorInput">Configuración de la sala</label>
-              <input list="sectores" id="sectorInput" name="sector" placeholder="Seleccione o escriba el formato..." />
+              <div class="input-group">
+                <input list="sectores" id="sectorInput" name="sector" placeholder="Seleccione o escriba el formato..." />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
               <datalist id="sectores">
                 <option value="General"></option>
                 <option value="Café Concert"></option>
@@ -109,30 +102,30 @@
                 <option value="Plateas 2026"></option>
               </datalist>
             </div>
-            <!-- <div>
-              <label for="">Fecha del evento</label>
-              <input type="date" id="eventDate" name="eventDate"    />
-              <label for="">Hora de inicio</label>
-              <input type="time" id="eventTime" name="eventTime"    />
-            </div> -->
-            <!-- MODIFICACIÓN DE INPUT PARA FORMATO DE FECHA CON MES EN LETRAS Y NO NÚMERO-->
             <div>
               <label for="eventDate">Fecha del evento</label>
-              <div class="custom-date-input" id="dateDisplay">
-                Seleccione una fecha
-              </div>
+              <div class="custom-date-input" id="dateDisplay">Seleccione una fecha</div>
               <input type="date" id="eventDate" name="eventDate" class="hidden-date-input" />
-            <!-- HASTA ACÁ LLEGA LA MODIFICACIÓN -->
               <label for="eventTime">Hora de inicio</label>
-              <input type="time" id="eventTime" name="eventTime" value="00:00" />
+              <div class="input-group">
+                <input type="time" id="eventTime" name="eventTime" value="00:00" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
             </div>
             <div>
               <label for="doorsTime">Apertura de puertas</label>
-              <input type="time" id="doorsTime" name="doorsTime" value="00:00" />
+              <div class="input-group">
+                <input type="time" id="doorsTime" name="doorsTime" value="00:00" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
               <label for="eventEndTime">Hora de fin</label>
-              <input type="time" id="eventEndTime" name="eventEndTime" value="00:00" />
+              <div class="input-group">
+                <input type="time" id="eventEndTime" name="eventEndTime" value="00:00" />
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
             </div>
           </fieldset>
+
           <fieldset class="delivery-format">
             <legend>FORMATO DE ENTREGA</legend>
             <div>
@@ -177,88 +170,59 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><input type="text" name="dato1[]" /></td>
-                  <td class="valores"><input type="text" name="dato2[]"  /></td>
-                  <td><input type="text" name="dato3[]" /></td>
+                  <td><div class="input-group"><input type="text" name="dato1[]" /><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
+                  <td class="valores"><div class="input-group"><input type="text" name="dato2[]" /><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
+                  <td><div class="input-group"><input type="text" name="dato3[]" /><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
                   <td><button class="toggle-btn no" type="button" onclick="ciclarOpcionMesa(this)">No</button></td>
-                  <td>
-                    <button class="delete-btn" onclick="eliminarFila(this)">X</button>
-                  </td>
+                  <td><button class="delete-btn" onclick="eliminarFila(this)">X</button></td>
                 </tr>
               </tbody>
             </table>
           </fieldset>
 
           <fieldset>
-    <legend>TARIFAS</legend>
-    <button type="button" onclick="agregarFila2()">Agregar Fila</button>
-    <table id="losPrecios" class="table-wrapper">
-        <thead>
-            <tr>
-                <th>Nombre de la Tarifa</th>
-                <th>Tickets por compra</th>
-                <th>$ Valor de Tarifa</th>
-                <th>% SC Web</th>
-                <th>$ SC Web</th>
-                <th>% SC POS</th>
-                <th>$ SC POS</th>
-                <th>Tickets por fase</th>
-            </tr>
-        </thead>
-        <tbody id="miTablaBody">
-          <tr>
-            <td class="col-nombre-tarifa"><input type="text" name="nombreTarifa[]" /></td>
-            <td class="col-tickets-compra"><input type="number" name="ticketsCompra[]" /></td>
-            <td class="col-valor-tarifa"><input type="number" class="valor-tarifa" name="valorTarifa[]" placeholder="" min="0" /></td>
-            <td class="col-porcentaje-web"><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
-            <td class="col-resultado-web"><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></td>
-            <td class="col-porcentaje-pos"><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"></td>
-            <td class="col-resultado-pos"><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
-            <td class="col-tickets-fase"><input type="number" name="ticketsFase[]" /></td>
-            <td><button class="delete-btn" onclick="eliminarFila2(this)">X</button></td>
-          </tr>
-        </tbody>
-    </table>
-  </fieldset>
+            <legend>TARIFAS</legend>
+            <button type="button" onclick="agregarFila2()">Agregar Fila</button>
+            <table id="losPrecios" class="table-wrapper">
+                <thead>
+                    <tr>
+                        <th>Nombre de la Tarifa</th>
+                        <th>Tickets por compra</th>
+                        <th>$ Valor de Tarifa</th>
+                        <th>% SC Web</th>
+                        <th>$ SC Web</th>
+                        <th>% SC POS</th>
+                        <th>$ SC POS</th>
+                        <th>Tickets por fase</th>
+                    </tr>
+                </thead>
+                <tbody id="miTablaBody">
+                  <tr>
+                    <td class="col-nombre-tarifa"><div class="input-group"><input type="text" name="nombreTarifa[]" /><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button></div></td>
+                    <td class="col-tickets-compra"><div class="input-group-above"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button><input type="number" name="ticketsCompra[]" /></div></td>
+                    <td class="col-valor-tarifa"><div class="input-group-above"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button><input type="number" class="valor-tarifa" name="valorTarifa[]" min="0" /></div></td>
+                    <td class="col-porcentaje-web"><input type="number" class="porcentaje-web" name="porcentajeWeb[]" placeholder="15" min="0" /></td>
+                    <td class="col-resultado-web"><div class="input-group-above"><button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button><input type="text" class="resultado-web" name="resultadoWeb[]" readonly /></div></td>
+                    <td class="col-porcentaje-pos"><input type="number" class="porcentaje-boleteria" name="porcentajeBoleteria[]" placeholder="12" min="0"></td>
+                    <td class="col-resultado-pos"><input type="text" class="resultado-boleteria" name="resultadoBoleteria[]" readonly /></td>
+                    <td class="col-tickets-fase"><input type="number" name="ticketsFase[]" /></td>
+                    <td><button class="delete-btn" onclick="eliminarFila2(this)">X</button></td>
+                  </tr>
+                </tbody>
+            </table>
+          </fieldset>
+
           <fieldset>
             <legend>RECAUDACIÓN</legend>
             <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
-            <select name="" id="">
-              <option value="">Grupo 1</option>
-              <option value="">Grupo 2</option>
-              <option value="">Grupo 3</option>
-              <option value="">Grupo 4</option>
-              <option value="">Grupo 5</option>
-              <option value="">Grupo 6</option>
-              <option value="">Grupo 7</option>
-              <option value="">Grupo 8</option>
-              <option value="">Grupo 9</option>
-              <option value="">Grupo 10</option>
-              <option value="">Grupo 11</option>
-              <option value="">Grupo 12</option>
-              <option value="">Grupo 13</option>
-              <option value="">Grupo 14</option>
-              <option value="">Grupo 15</option>
-              <option value="">Grupo 16</option>
-              <option value="">Grupo 17</option>
-              <option value="">Grupo 18</option>
-              <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
-              <option value="YSYA-FIVE_NQN">YSY A - FIVE NQN</option>
-              <option value="Five1">Five 1</option>
-              <option value="Five2">Five 2</option>
-              <option value="Five3">Five 3</option>
-              <option value="Five4">Five 4</option>
-              <option value="Five5">Five 5</option>
-              <option value="Five(NQN)-Grupo1">Five(NQN) - Grupo 1</option>
-              <option value="Five(NQN)-Grupo2">Five(NQN) - Grupo 2</option>
-              <option value="Five(NQN)-Grupo3">Five(NQN) - Grupo 3 (LALI)</option>
-              <option value="Five(NQN)-Grupo4">Five(NQN) - Grupo 4</option>
-              <option value="ProticketsGrupo1">Protickets - Grupo 1</option>
-              <option value="ProticketsGrupo2">Protickets - Grupo 2</option>
-              <option value="ProticketsGrupo3">Protickets - Grupo 3</option>
-              <option value="ProticketsGrupo4">Protickets - Grupo 4</option>
-              <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
-            </select>
+            <div class="input-group">
+                <select name="" id="">
+                    <option value="">Grupo 1</option>
+                    <option value="ComerciosAIRBAG">Comercios AIRBAG</option>
+                    <option value="ProticketsGrupo5">Protickets - Grupo 5</option>
+                </select>
+                <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+            </div>
           </fieldset>
 
           <fieldset>
@@ -266,20 +230,38 @@
             <div>
               <label for="">Políticas</label>
               <p>Política de menores:</p>
-              <textarea name="" id="" cols="">APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea>
+              <div class="input-group">
+                  <textarea name="" id="" cols="">APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea>
+                  <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
               <p>Personas con discapacidad:</p>
-              <textarea name="" id="" cols="">El ingreso para personas con discapacidad es gratuito por ley municipal con acreditación previa en boletería ( original y copias presentan) hasta 48 hs antes del show o hasta agotar cupo! En formato Café Concert solo se toman 6 con acompañante o hasta 12 cupos ( 3 mesas), y de pie hasta 20 cupos.</textarea>
+              <div class="input-group">
+                  <textarea name="" id="" cols="">El ingreso para personas con discapacidad es gratuito por ley municipal con acreditación previa en boletería ( original y copias presentan) hasta 48 hs antes del show o hasta agotar cupo! En formato Café Concert solo se toman 6 con acompañante o hasta 12 cupos ( 3 mesas), y de pie hasta 20 cupos.</textarea>
+                  <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
               <p>Otros...</p>
-              <textarea name="" id=""></textarea>
+              <div class="input-group">
+                  <textarea name="" id=""></textarea>
+                  <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
             </div>
             <div>
               <label for="">Soporte y Control de Acceso</label>
               <p>Reingreso (salir y volver a entrar):</p>
-              <textarea name="" id="" cols="">No está permitido el reingreso al evento una vez abandonado el recinto.</textarea>
+              <div class="input-group">
+                  <textarea name="" id="" cols="">No está permitido el reingreso al evento una vez abandonado el recinto.</textarea>
+                  <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
               <p>Cambio de fechas:</p>
-              <textarea name="" id="" cols="">No está permitido el cambio de fecha una vez adquiridas las entradas.</textarea>
+              <div class="input-group">
+                  <textarea name="" id="" cols="">No está permitido el cambio de fecha una vez adquiridas las entradas.</textarea>
+                  <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
               <p>Otros...</p>
-              <textarea name="" id=""></textarea>
+              <div class="input-group">
+                  <textarea name="" id=""></textarea>
+                  <button type="button" class="copy-btn" onclick="copyValue(this)">Copy</button>
+              </div>
             </div>
           </fieldset>
 
@@ -359,9 +341,7 @@
 
     <div class="buttonPDF">
         <button id="btnGenerarPdf">Generar PDF</button>
-<p  class="nota">
-    💡Nota: Al generar el PDF, asegurate de seleccionar <strong>"Guardar como PDF"</strong> como destino para un resultado óptimo.
-</p>
+        <p class="nota">💡Nota: Al generar el PDF, asegurate de seleccionar <strong>"Guardar como PDF"</strong>.</p>
     </div>
 
     <script src="scripts.js"></script>
