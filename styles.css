@@ -17,12 +17,13 @@ body {
     line-height: 1.6;
     background-color: #f0f2f5; 
     background: #0008 url(https://images.pexels.com/photos/9245734/pexels-photo-9245734.jpeg) no-repeat center center fixed;
+    background-size: cover;
     padding: 2rem;
 }
 
-img{
-    width: 70%;
-    height: 5%;
+img#logo-web, img#logo-pdf {
+    width: 35%;
+    height: auto;
     display: block;
     margin: 0 auto 20px auto;
 }
@@ -31,6 +32,8 @@ h1 {
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    font-size: 70px;
+    -webkit-text-stroke: 0.5px #000;
 }
 
 .datasheet {
@@ -70,12 +73,14 @@ legend {
     color: var(--primary-color);
 }
 
+/* Todos los inputs ahora comparten el mismo estilo base */
 input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], input[list], select {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
+    height: 100%; /* Asegura consistencia */
 }
 
 label {
@@ -157,15 +162,34 @@ textarea {
     font-family: inherit;
 }
 
+/* === SECCIÓN MATERIALES DE MARKETING CORREGIDA === */
 .marketing-materials {
     grid-column: 1 / -1;
     display: flex;
     width: 100%;
     gap: 1rem;
+    align-items: center; /* Centra verticalmente el aviso del peso con las listas */
 }
 
-.item { flex: 1; padding: 1em; }
+.item { padding: 1em; }
 .negritas { font-weight: bold; color: var(--primary-color); }
+
+#peso { 
+    font-size: 23px; 
+    margin: auto; 
+    text-align: center; 
+    flex: 2; 
+}
+#dimension { 
+    text-align: right; 
+    flex: 1; 
+    line-height: 1.8;
+}
+#caracteristicas { 
+    text-align: left; 
+    flex: 2; 
+    line-height: 1.8;
+}
 
 .buttonPDF {
     display: flex;
@@ -178,21 +202,12 @@ textarea {
     margin: 20px 0;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: var(--primary-color);
 }
 
 .nota {
     background-color: #fff;
     padding: 10px 15px;
     border-radius: 8px;
-}
-
-#logo-web{ width: 35%; height: auto; }
-
-h1{
-    font-size: 70px;
-    color: #f36f21;
-    -webkit-text-stroke: 0.5px #000;
 }
 
 .linksMaterial {
@@ -212,12 +227,16 @@ h1{
 
 .hidden-date-input { display: none; }
 
-/* === ESTILOS PARA GRUPOS DE COPIADO === */
+/* === ESTILOS PARA COPIADO === */
 .input-group {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: stretch; /* CLAVE: Estira el botón para igualar la altura del input */
+    gap: 8px;
     width: 100%;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    flex: 1;
 }
 
 .input-group-above {
@@ -228,24 +247,37 @@ h1{
     gap: 3px;
 }
 
-.copy-btn {
-    padding: 4px 8px;
-    font-size: 10px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
+.copy-btn-img {
+    background: none;
     border: none;
-    font-weight: bold;
-    white-space: nowrap;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    width: 32px; /* Un poco más ancho para centrar bien el ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
 }
 
-.copy-btn:hover { background-color: #d65a10; }
+.copy-btn-img:hover { background-color: #f0f0f0; }
+
+.copy-btn-img img {
+    width: 18px;
+    height: 18px;
+    margin: 0 !important;
+    display: inline-block !important;
+}
+
+/* Espacio compensatorio para alinear inputs en Tarifas */
+.mt-copy-space {
+    margin-top: 31px !important;
+}
 
 @media print {
     @page { size: A3 landscape; }
     body * { visibility: hidden; }
     #contenido-a-pdf, #contenido-a-pdf * { visibility: visible; }
     #contenido-a-pdf { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
-    .copy-btn, #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
+    .copy-btn-img, #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
 }
