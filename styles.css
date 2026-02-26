@@ -62,6 +62,11 @@ fieldset {
     align-items: center;
 }
 
+#showTime{
+    display: flex;
+    flex-direction: row;
+}
+
 legend, .delivery-format h4, .table-wrapper, form button, fieldset > button {
     grid-column: 1 / -1;
 }
@@ -215,4 +220,24 @@ textarea {
     #contenido-a-pdf, #contenido-a-pdf * { visibility: visible; }
     #contenido-a-pdf { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
     #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
+}
+
+/* Ejemplo para integrar con tu color --primary-color */
+.flatpickr-time input:hover, .flatpickr-time .flatpickr-am-pm:hover, 
+.flatpickr-time input:focus, .flatpickr-time .flatpickr-am-pm:focus {
+    background: #f36f2122; /* Un naranja muy suave de fondo */
+}
+
+.flatpickr-day.selected {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.borderFAQs{
+    border: 1px dashed rgba(160, 155, 155, 0.533);
+    padding: 10px;
+}
+
+.venueName{
+    width: 2rem;
 }

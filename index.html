@@ -13,6 +13,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer">
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body>
     <div id="contenido-a-pdf">
@@ -24,6 +26,7 @@
       <h1>FICHA TÉCNICA</h1>
       <div class="datasheet">
         <form id="form">
+          <!-- //////////// DATOS DE PRODUCCIÓN ////////// -->
           <fieldset>
             <legend>PRODUCTORA</legend>
             <input list="producer" id="productoraInput" name="productoraInput" placeholder="Seleccione o escriba la productora..." />
@@ -35,7 +38,7 @@
             <input type="text" placeholder="Nombre de quién verá el reporte de ventas" />
             <input type="email" placeholder="Correo electrónico para el reporte de ventas" />
           </fieldset>
-          
+          <!-- //////////// CARACTERÍSTICAS DEL EVENTO ////////// -->          
           <fieldset>
             <legend>EVENTO</legend>
             <div>
@@ -46,6 +49,8 @@
               <label>Nombre del artista</label>
               <input type="text" placeholder="Nombre del artista o banda"/>
             </div>
+            <div>
+            <label>Venue</label>
             <input list="venue" id="venueName" name="venueName" placeholder="Seleccione o escriba el venue..." />
             <datalist id="venue">
               <option value="Mood Live"></option>
@@ -55,20 +60,25 @@
               <option value="Centro de Convenciones “Domuyo”"></option>
               <option value="Paseo de la Costa"></option>
             </datalist>
+          </div>
+          <div>                
+            <label>Dirección</label>
             <input type="text" id="addressLocation" name="addressLocation" placeholder="Dirección" />
-            <div>
-              <select name="genre">
-                <option value="" disabled selected>Género</option>
-                <option value="rock">Rock</option>
-                <option value="pop">Pop</option>
-                <option value="cumbia">Cumbia</option>
-                <option value="folklore">Folklore</option>
-                <option value="electrónica">Electrónica</option>
-                <option value="trap_rap">Trap/Rap</option>
-                <option value="urbano">Urbano</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
+          </div>
+          <div>
+            <label>Género</label>
+            <select name="genre">
+              <option value="" disabled selected>Género</option>
+              <option value="rock">Rock</option>
+              <option value="pop">Pop</option>
+              <option value="cumbia">Cumbia</option>
+              <option value="folklore">Folklore</option>
+              <option value="electrónica">Electrónica</option>
+              <option value="trap_rap">Trap/Rap</option>
+              <option value="urbano">Urbano</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
             <div id="sectorContainer" class="hidden">
               <label for="sectorInput">Configuración de la sala</label>
               <input list="sectores" id="sectorInput" name="sector" placeholder="Seleccione o escriba el formato..." />
@@ -83,17 +93,23 @@
               <label>Fecha del evento</label>
               <div class="custom-date-input" id="dateDisplay">Seleccione una fecha</div>
               <input type="date" id="eventDate" name="eventDate" class="hidden-date-input" />
-              <label>Hora de inicio</label>
-              <input type="time" id="eventTime" value="00:00" />
             </div>
-            <div>
-              <label>Apertura de puertas</label>
-              <input type="time" id="doorsTime" value="00:00" />
-              <label>Hora de fin</label>
-              <input type="time" id="eventEndTime" value="00:00" />
+            <div id="showTime" class="input-group">
+              <span>
+                <label>Hora de inicio</label>
+                <input type="text" id="eventTime" class="timepicker" placeholder="Seleccione hora">
+              </span>
+              <span>
+                <label>Apertura de puertas</label>
+                <input type="text" id="eventTime" class="timepicker" placeholder="Seleccione hora">
+              </span>
+              <span>
+                <label>Hora de fin</label>
+                <input type="text" id="eventTime" class="timepicker" placeholder="Seleccione hora">
+              </span>
             </div>
           </fieldset>
-
+          <!-- //////////// DELIVERY ////////// -->
           <fieldset class="delivery-format">
             <legend>FORMATO DE ENTREGA</legend>
             <div>
@@ -108,7 +124,7 @@
               <div class="checkbox-group"><input type="checkbox" id="pos-ticket" /><label for="pos-ticket">TICKET IMPRESO</label></div>
             </div>
           </fieldset>
-
+          <!-- //////////// SECTORIZACIÓN ////////// -->
           <fieldset>
             <legend>SECTORIZACIÓN</legend>
             <button type="button" onclick="agregarFila()">Agregar Fila</button>
@@ -132,7 +148,7 @@
               </tbody>
             </table>
           </fieldset>
-
+          <!-- //////////// RATES ////////// -->
           <fieldset>
             <legend>TARIFAS</legend>
             <button type="button" onclick="agregarFila2()">Agregar Fila</button>
@@ -164,7 +180,7 @@
                 </tbody>
             </table>
           </fieldset>
-
+          <!-- //////////// GATEWAY ////////// -->
           <fieldset>
             <legend>RECAUDACIÓN</legend>
             <p>Seleccione del listado el grupo de comercios que se utilizarán en el vento:</p>
@@ -201,10 +217,10 @@
                 <option value="Five(NQN)-Grupo4">Five(NQN) - Grupo 4</option>
             </select>
           </fieldset>
-
+          <!-- //////////// FAQ's ////////// -->
           <fieldset>
             <legend>FAQ's</legend>
-            <div>
+            <div class="borderFAQs">
               <label>Políticas</label>
               <p>Política de menores:</p>
               <textarea>APTO PARA TODO PUBLICO; ABONO GENERAL DESDE LOS 5 AÑOS DE EDAD</textarea>
@@ -213,7 +229,7 @@
               <p>Otros...</p>
               <textarea></textarea>
             </div>
-            <div>
+            <div class="borderFAQs">
               <label>Soporte y Control de Acceso</label>
               <p>Reingreso (salir y volver a entrar):</p>
               <textarea>No está permitido el reingreso al evento una vez abandonado el recinto.</textarea>
@@ -223,7 +239,7 @@
               <textarea></textarea>
             </div>
           </fieldset>
-
+          <!-- //////////// MATERIAL PARA LANDING ////////// -->
           <fieldset>
             <legend>MATERIALES DE MARKETING</legend>
             <div class="marketing-materials">
@@ -264,7 +280,7 @@
               <label>Link a Press Kit Oficial</label><input type="text">
             </div>
           </fieldset>
-
+          <!-- //////////// HOLDS ////////// -->
           <fieldset>
             <legend>HOLD</legend>
             <table id="holdTable" class="table-wrapper">
@@ -279,7 +295,7 @@
         </form>
       </div>
     </div>
-
+          <!-- //////////// PDF BUTTON ////////// -->
     <div class="buttonPDF">
         <button id="btnGenerarPdf">Generar PDF</button>
         <p class="nota">💡Nota: Al generar el PDF, asegurate de seleccionar <strong>"Guardar como PDF"</strong>.</p>
