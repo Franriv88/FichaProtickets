@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (venueInput) {
         venueInput.addEventListener('input', function() {
-            const vA = { "Mood Live": "Ministro Gonzalez 40", "RucaChe": "Antártida Argentina 3901", "Espacio Duam": "San Martin 5901" };
+            const vA = { "Mood Live": "Ministro Gonzalez 40", "RucaChe": "Antártida Argentina 3901", "Espacio Duam": "San Martin 5901", "Autodromo Parque Ciudad de Centenario": "Ruta Provincial 7, a la altura del km 1337" };
             addressInput.value = vA[this.value] || '';
             if(sectorContainer) sectorContainer.classList.toggle('hidden', this.value !== 'Mood Live');
         });
