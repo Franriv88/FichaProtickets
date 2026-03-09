@@ -117,9 +117,11 @@ input[type="checkbox"] {
 }
 
 .col-nombre-tarifa { width: 30%; }
-.col-tickets-compra, .col-porcentaje-web, .col-porcentaje-pos { width: 7%; }
+.col-tickets-compra { width: 7.5%; }
+.col-porcentaje-web, .col-porcentaje-pos { width: 8%; }
 .col-tickets-fase { width: 10%; }
 .col-valor-tarifa, .col-resultado-web, .col-resultado-pos { width: 10%; }
+.col-capacidad-sector { width: 12%; }
 
 .table-wrapper {
     width: 100%;
@@ -132,7 +134,7 @@ table {
 }
 
 th, td {
-    padding: 0.8rem;
+    padding: 0.5rem;
     border: 1px solid var(--border-color);
     text-align: center;
     vertical-align: middle;
@@ -152,7 +154,7 @@ button {
     width: fit-content;
 }
 
-.delete-btn { background-color: #dc3545; }
+.delete-btn { background-color: #dc3545; padding:1px 3px; }
 
 textarea {
     width: 100%;
@@ -222,12 +224,6 @@ textarea {
     #btnGenerarPdf, .nota, .delete-btn, fieldset > button { display: none !important; }
 }
 
-/* Ejemplo para integrar con tu color --primary-color */
-.flatpickr-time input:hover, .flatpickr-time .flatpickr-am-pm:hover, 
-.flatpickr-time input:focus, .flatpickr-time .flatpickr-am-pm:focus {
-    background: #f36f2122; /* Un naranja muy suave de fondo */
-}
-
 .flatpickr-day.selected {
     background: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
@@ -238,6 +234,81 @@ textarea {
     padding: 10px;
 }
 
-.venueName{
-    width: 2rem;
+/* === MODIFICACIÓN DE CONTROLES DE TARIFAS (FILA ÚNICA) === */
+.tarifas-controls {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row; /* Fila única */
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-item label {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+}
+
+/* === ESTILOS DEL SWITCH (SI / NO) === */
+.switch-container {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch-container input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--primary-color); /* Naranja (No) */
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 3px; bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: #28a745; } /* Verde (Si) */
+input:checked + .slider:before { transform: translateX(26px); }
+
+.switch-text { font-weight: bold; font-size: 12px; }
+
+/* Botón de Ciclo de Transferencias */
+.btn-ciclo {
+    min-width: 100px;
+    background-color: #6c757d;
+    transition: all 0.2s;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 6px 12px;
+}
+
+.btn-ciclo.infinitas { background-color: #28a745; }
+.btn-ciclo.intransferible { background-color: #dc3545; }
+.btn-ciclo.contador { background-color: var(--primary-color); }
+
+@media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .btn-ciclo, .switch-container, .slider { visibility: visible !important; }
 }
