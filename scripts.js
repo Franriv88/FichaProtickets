@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Green&Five S.A.": "33-71649874-9",
                 "FIVE PRO EVENTS S.A.": "30-71536330-1",
                 "PRO TICKETS S.R.L": "30-71830826-3",
+                "MOTOCROSS CLUB NEUQUÉN": "30-70708289-1"
             };
             cuitInput.value = cuits[this.value] || '';
         });
