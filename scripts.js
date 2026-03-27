@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Espacio Duam": "San Martin 5901",
                 "Cipolletti": "Cipolletti, Río Negro",
                 "Paseo de la Costa": "Isla 132, Neuquén",
-                "Autódromo Parque Ciudad de Centenario": "Ruta Provincial 7, a la altura del km 1337, Neuquén"
+                "Autódromo Parque Ciudad de Centenario": "Ruta Provincial 7, a la altura del km 1337, Neuquén",
+                "Motocross Club Neuquén": "Dr. René G. Favaloro, Neuquén"
             };
             addressInput.value = venues[this.value] || '';
         });
